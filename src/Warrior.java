@@ -1,10 +1,6 @@
 package src;
 
-public class Warrior extends Character{
-    public Warrior(int id, String name, int hp, Boolean isAlive) {
-        super(id, name, hp, isAlive);
-    }
-
+public class Warrior extends Character {
     int stamina;
     int strength;
 
