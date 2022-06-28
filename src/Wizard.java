@@ -1,9 +1,6 @@
 package src;
 
 public class Wizard extends Character{
-    public Wizard(int id, String name, int hp, Boolean isAlive) {
-        super(id, name, hp, isAlive);
-    }
 
     int mana;
     int intelligence;
