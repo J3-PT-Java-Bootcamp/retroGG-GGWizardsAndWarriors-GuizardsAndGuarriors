@@ -19,7 +19,7 @@ public class Party {
     }
 
     public void addPartyMembers(Character[] characters) {
-        for (Character character:characters) {
+        for (Character character : characters) {
             this.addPartyMember(character);
         }
     }

@@ -14,13 +14,13 @@ public class CsvReader {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
 
             String line;
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 String[] tokens = line.split(DELIMITER);
                 data.add(tokens);
             }
 
             reader.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
