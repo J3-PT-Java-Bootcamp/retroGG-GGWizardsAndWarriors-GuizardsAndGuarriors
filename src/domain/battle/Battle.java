@@ -1,7 +1,5 @@
 package src.domain.battle;
 
-import src.domain.characters.Warrior;
-import src.domain.characters.Wizard;
 import src.domain.party.Party;
 
 import java.util.ArrayList;

@@ -1,6 +1,8 @@
-package src.domain.characters;
+package src.domain.characters.wizard;
 
-public class Wizard extends Character{
+import src.domain.characters.Character;
+
+public class Wizard extends Character {
 
     int mana;
     int intelligence;

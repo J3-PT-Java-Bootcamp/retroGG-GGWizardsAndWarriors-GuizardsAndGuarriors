@@ -1,9 +1,5 @@
 package src;
 
-import src.domain.battle.Battle;
-import src.domain.characters.Warrior;
-import src.domain.characters.Wizard;
-
 public class Main {
     public static void main(String[] args) {
 //        Party party1 = new Party();

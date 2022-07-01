@@ -1,4 +1,6 @@
-package src.domain.characters;
+package src.domain.characters.warrior;
+
+import src.domain.characters.Character;
 
 public class Warrior extends Character {
     int stamina;
