@@ -1,5 +1,7 @@
-import src.Warrior;
-import src.Wizard;
+package src.domain.battle;
+
+import src.domain.characters.Warrior;
+import src.domain.characters.Wizard;
 
 import java.util.ArrayList;
 
@@ -20,10 +22,10 @@ public class Battle {
 
         int turn = 1;
 
-        while(!isFinished()) {
+        while (!isFinished()) {
             System.out.println("Turn " + turn);
 
-            for(Wizard wizard : party1.getWizards()) {
+            for (Wizard wizard : party1.getWizards()) {
                 Character target = getRandomCharacter(party2);
                 int damage = wizard.getIntelligence();
 
@@ -33,7 +35,7 @@ public class Battle {
                 checkDeath(target);
             }
 
-            for(Warrior warrior : party1.getWarriors()) {
+            for (Warrior warrior : party1.getWarriors()) {
                 Character target = getRandomCharacter(party2);
                 int damage = warrior.getStrength();
 
@@ -48,7 +50,7 @@ public class Battle {
 
         System.out.println("The battle has ended!");
 
-        if(party1.getWizards().size() > 0) {
+        if (party1.getWizards().size() > 0) {
             System.out.println("Party 1 has won the battle!");
         } else {
             System.out.println("Party 2 has won the battle!");
@@ -60,12 +62,12 @@ public class Battle {
     }
 
     private void checkDeath(Character character) {
-        if(character.getHp() <= 0) {
+        if (character.getHp() <= 0) {
             System.out.println(character.getName() + " has died!");
 
-            if(character instanceof Wizard) {
+            if (character instanceof Wizard) {
                 party1.getWizards().remove(character);
-            } else if(character instanceof Warrior) {
+            } else if (character instanceof Warrior) {
                 party1.getWarriors().remove(character);
             }
 
@@ -78,28 +80,7 @@ public class Battle {
         characters.addAll(party.getWizards());
         characters.addAll(party.getWarriors());
 
-        int index = (int)(Math.random() * characters.size());
+        int index = (int) (Math.random() * characters.size());
         return characters.get(index);
-    }
-}
-
-public class Main {
-
-    public static void main(String[] args) {
-        Party party1 = new Party();
-        Party party2 = new Party();
-
-        for(int i = 0; i < 5; i++) {
-            party1.addWizard(new Wizard("Wizard " + i, 100, 10, 1, 10, 1));
-            party1.addWarrior(new Warrior("Warrior " + i, 200, 50, 10, 10, 1));
-        }
-
-        for(int i = 0; i < 5; i++) {
-            party2.addWizard(new Wizard("Wizard " + i, 100, 10, 1, 10, 1));
-            party2.addWarrior(new Warrior("Warrior " + i, 200, 50, 10, 10, 1));
-        }
-
-        Battle battle = new Battle(party1, party2);
-        battle.start();
     }
 }

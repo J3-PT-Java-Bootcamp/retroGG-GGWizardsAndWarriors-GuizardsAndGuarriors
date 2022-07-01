@@ -1,4 +1,4 @@
-package src;
+package src.domain.characters;
 
 public class Warrior extends Character {
     int stamina;

@@ -1,4 +1,4 @@
-package src;
+package src.domain.characters;
 
 public class Wizard extends Character{
 
