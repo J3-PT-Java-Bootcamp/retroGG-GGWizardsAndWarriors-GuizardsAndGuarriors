@@ -27,7 +27,7 @@ public class Graveyard {
         if (deadCharactersList.size() < 3){
             System.out.println("Not enough deads to show you three, fight some more for me");
         } else if (deadCharactersList.size() >= 3 ) {
-            for (int i = deadCharactersList.size(); i < deadCharactersList.size()+3; i++) {
+            for (int i = deadCharactersList.size()-3; i < deadCharactersList.size(); i++) {
                 System.out.println(deadCharactersList.get(i).getName() + " is resting at the graveyard");
             }
         }
