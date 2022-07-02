@@ -26,4 +26,22 @@ public class Wizard extends Character{
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
+
+    @Override
+    public void Fireball() {
+        if(this.mana >= 5) {
+            int damage = this.intelligence;
+            this.mana -= 5;
+            System.out.println("Fireball: Total damage is " + damage);
+        } else{
+            staffHit();
+        }
+    }
+
+    @Override
+    public void staffHit() {
+        int damage = 2;
+        this.mana += 1;
+        System.out.println("Staff Hit: Total damage is " + damage);
+    }
 }

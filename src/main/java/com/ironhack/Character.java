@@ -1,6 +1,6 @@
 package com.ironhack;
 
-public abstract class Character {
+public abstract class Character implements Attacker{
     int id;
     String name;
     int hp;
@@ -43,5 +43,20 @@ public abstract class Character {
 
     public void setAlive(Boolean alive) {
         isAlive = alive;
+    }
+    @Override
+    public void heavyAttack() {
+    }
+
+    @Override
+    public void weakAttack() {
+    }
+
+    @Override
+    public void Fireball() {
+    }
+
+    @Override
+    public void staffHit() {
     }
 }
