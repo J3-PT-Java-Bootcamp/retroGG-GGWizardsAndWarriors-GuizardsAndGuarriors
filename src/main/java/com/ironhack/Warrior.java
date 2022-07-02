@@ -1,4 +1,4 @@
-package src;
+package com.ironhack;
 
 public class Warrior extends Character {
     int stamina;

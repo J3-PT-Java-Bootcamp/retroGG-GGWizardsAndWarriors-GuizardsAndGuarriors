@@ -1,4 +1,4 @@
-package src;
+package com.ironhack;
 
 public abstract class Character {
     int id;

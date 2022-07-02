@@ -1,4 +1,4 @@
-package src;
+package com.ironhack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
