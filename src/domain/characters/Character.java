@@ -1,18 +1,21 @@
 package src.domain.characters;
 
 import src.domain.characters.stats.BaseStats;
+import src.domain.characters.stats.CurrentBaseStats;
 
 public abstract class Character {
     int id;
     String name;
-    final BaseStats baseStats;
+    private final BaseStats baseStats;
+    private final CurrentBaseStats currentStats;
     Boolean isAlive;
 
-    public Character(int id, String name, BaseStats baseStats, Boolean isAlive) {
+    public Character(int id, String name, BaseStats baseStats, CurrentBaseStats currentStats, Boolean isAlive) {
         this.id = id;
         this.name = name;
         this.baseStats = baseStats;
         this.isAlive = isAlive;
+        this.currentStats = currentStats;
     }
 
     public int getId() {
@@ -37,5 +40,13 @@ public abstract class Character {
 
     public void setAlive(Boolean alive) {
         isAlive = alive;
+    }
+
+    public BaseStats getBaseStats() {
+        return this.baseStats;
+    }
+
+    public CurrentBaseStats getCurrentStats() {
+        return this.currentStats;
     }
 }
