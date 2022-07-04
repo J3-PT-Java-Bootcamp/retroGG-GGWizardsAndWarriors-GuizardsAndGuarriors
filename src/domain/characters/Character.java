@@ -1,15 +1,17 @@
 package src.domain.characters;
 
+import src.domain.characters.stats.BaseStats;
+
 public abstract class Character {
     int id;
     String name;
-    int hp;
+    final BaseStats baseStats;
     Boolean isAlive;
 
-    public Character(int id, String name, int hp, Boolean isAlive) {
+    public Character(int id, String name, BaseStats baseStats, Boolean isAlive) {
         this.id = id;
         this.name = name;
-        this.hp = hp;
+        this.baseStats = baseStats;
         this.isAlive = isAlive;
     }
 
@@ -27,14 +29,6 @@ public abstract class Character {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
     }
 
     public Boolean getAlive() {
