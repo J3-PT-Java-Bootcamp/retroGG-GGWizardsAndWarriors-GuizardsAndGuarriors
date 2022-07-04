@@ -15,14 +15,7 @@ public class Party {
     public Party(Character[] characters) {
         this.charactersList = new ArrayList<Character>();
         this.addPartyMembers(characters);
-        var asd = new Warrior(1,
-                "PEP",
-                new WarriorStats(new WarriorHealthPoints(300), new Stamina(300), new Strength(300)),
-                new WarriorCurrentStats(new WarriorHealthPoints(300), new Stamina(300), new Strength(300)),
-                true
-        );
-
-    }
+            }
 
     public void addPartyMember(Character character) {
         this.charactersList.add(character);
