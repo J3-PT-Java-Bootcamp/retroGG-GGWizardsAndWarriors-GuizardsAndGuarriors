@@ -4,8 +4,8 @@ import src.domain.characters.stats.BaseStats;
 
 public class WizardStats extends BaseStats {
 
-    private final Mana mana;
-    private final Intelligence intelligence;
+    protected Mana mana;
+    protected Intelligence intelligence;
 
     public WizardStats(WizardHealthPoints hp, Mana mana, Intelligence intelligence) {
         super(hp);

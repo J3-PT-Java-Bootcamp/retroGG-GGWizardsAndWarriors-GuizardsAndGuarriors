@@ -4,8 +4,8 @@ import src.domain.characters.stats.BaseStats;
 
 public class WarriorStats extends BaseStats {
 
-    private final Stamina stamina;
-    private final Strength strength;
+    protected Stamina stamina;
+    protected Strength strength;
 
     public WarriorStats(WarriorHealthPoints hp, Stamina stamina, Strength strength) {
         super(hp);
