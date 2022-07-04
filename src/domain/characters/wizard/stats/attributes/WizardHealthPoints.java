@@ -1,6 +1,6 @@
-package src.domain.characters.wizard.stats;
+package src.domain.characters.wizard.stats.attributes;
 
-import src.domain.characters.stats.HealthPoints;
+import src.domain.characters.stats.attributes.HealthPoints;
 
 public class WizardHealthPoints extends HealthPoints {
 

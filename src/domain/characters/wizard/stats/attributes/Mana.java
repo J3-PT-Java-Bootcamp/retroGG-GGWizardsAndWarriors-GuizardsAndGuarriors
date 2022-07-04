@@ -1,10 +1,9 @@
-package src.domain.characters.warrior.stats;
+package src.domain.characters.wizard.stats.attributes;
 
 import src.domain.characters.stats.IntRangeStat;
 
-public class Stamina extends IntRangeStat {
-
-    public Stamina(int value) {
+public class Mana extends IntRangeStat {
+    public Mana(int value) {
         super(value);
     }
 
@@ -17,5 +16,4 @@ public class Stamina extends IntRangeStat {
     public int getMinValue() {
         return 10;
     }
-
 }

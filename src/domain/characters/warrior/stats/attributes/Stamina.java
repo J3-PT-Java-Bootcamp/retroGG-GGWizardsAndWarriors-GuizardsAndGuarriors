@@ -1,20 +1,21 @@
-package src.domain.characters.warrior.stats;
+package src.domain.characters.warrior.stats.attributes;
 
 import src.domain.characters.stats.IntRangeStat;
 
-public class Strength extends IntRangeStat {
+public class Stamina extends IntRangeStat {
 
-    public Strength(int value) {
+    public Stamina(int value) {
         super(value);
     }
 
     @Override
     public int getMaxValue() {
-        return 10;
+        return 50;
     }
 
     @Override
     public int getMinValue() {
-        return 1;
+        return 10;
     }
+
 }

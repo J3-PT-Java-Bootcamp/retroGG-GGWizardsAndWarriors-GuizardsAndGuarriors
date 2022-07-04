@@ -1,6 +1,9 @@
 package src.domain.characters.wizard.stats;
 
 import src.domain.characters.stats.CurrentBaseStats;
+import src.domain.characters.wizard.stats.attributes.Intelligence;
+import src.domain.characters.wizard.stats.attributes.Mana;
+import src.domain.characters.wizard.stats.attributes.WizardHealthPoints;
 
 public class WizardCurrentStats extends CurrentBaseStats {
 

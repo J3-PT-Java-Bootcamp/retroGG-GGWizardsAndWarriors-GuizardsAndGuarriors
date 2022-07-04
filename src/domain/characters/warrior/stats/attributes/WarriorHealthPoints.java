@@ -1,6 +1,6 @@
-package src.domain.characters.warrior.stats;
+package src.domain.characters.warrior.stats.attributes;
 
-import src.domain.characters.stats.HealthPoints;
+import src.domain.characters.stats.attributes.HealthPoints;
 
 public class WarriorHealthPoints extends HealthPoints {
 

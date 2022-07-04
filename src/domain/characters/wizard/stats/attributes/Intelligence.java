@@ -1,4 +1,4 @@
-package src.domain.characters.wizard.stats;
+package src.domain.characters.wizard.stats.attributes;
 
 import src.domain.characters.stats.IntRangeStat;
 

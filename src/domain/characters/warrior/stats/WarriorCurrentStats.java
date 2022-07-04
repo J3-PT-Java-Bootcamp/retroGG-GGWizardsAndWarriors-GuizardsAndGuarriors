@@ -1,6 +1,9 @@
 package src.domain.characters.warrior.stats;
 
 import src.domain.characters.stats.CurrentBaseStats;
+import src.domain.characters.warrior.stats.attributes.Stamina;
+import src.domain.characters.warrior.stats.attributes.Strength;
+import src.domain.characters.warrior.stats.attributes.WarriorHealthPoints;
 
 public class WarriorCurrentStats extends CurrentBaseStats {
 

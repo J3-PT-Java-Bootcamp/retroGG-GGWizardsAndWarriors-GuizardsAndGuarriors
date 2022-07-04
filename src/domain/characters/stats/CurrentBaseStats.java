@@ -1,5 +1,7 @@
 package src.domain.characters.stats;
 
+import src.domain.characters.stats.attributes.HealthPoints;
+
 public class CurrentBaseStats {
     private HealthPoints hp;
 
