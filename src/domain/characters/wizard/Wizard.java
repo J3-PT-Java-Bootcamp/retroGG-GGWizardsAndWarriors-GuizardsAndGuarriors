@@ -1,8 +1,8 @@
 package src.domain.characters.wizard;
 
 import src.domain.characters.Character;
-import src.domain.characters.wizard.stats.WizardCurrentStats;
 import src.domain.characters.wizard.stats.WizardBaseStats;
+import src.domain.characters.wizard.stats.WizardCurrentStats;
 
 public class Wizard extends Character {
 

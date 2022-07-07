@@ -1,8 +1,8 @@
 package src.domain.characters.warrior;
 
 import src.domain.characters.Character;
-import src.domain.characters.warrior.stats.WarriorCurrentStats;
 import src.domain.characters.warrior.stats.WarriorBaseStats;
+import src.domain.characters.warrior.stats.WarriorCurrentStats;
 
 public class Warrior extends Character {
 

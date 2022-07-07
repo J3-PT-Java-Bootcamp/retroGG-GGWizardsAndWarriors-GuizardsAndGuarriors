@@ -1,8 +1,5 @@
 package src.domain.party;
 
-import src.domain.characters.warrior.Warrior;
-import src.domain.characters.warrior.stats.*;
-
 import java.util.ArrayList;
 
 public class Party {
@@ -15,7 +12,7 @@ public class Party {
     public Party(Character[] characters) {
         this.charactersList = new ArrayList<Character>();
         this.addPartyMembers(characters);
-            }
+    }
 
     public void addPartyMember(Character character) {
         this.charactersList.add(character);
