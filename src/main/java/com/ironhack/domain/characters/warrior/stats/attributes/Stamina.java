@@ -1,6 +1,6 @@
 package com.ironhack.domain.characters.warrior.stats.attributes;
 
-import src.domain.characters.stats.IntRangeStat;
+import com.ironhack.domain.characters.stats.IntRangeStat;
 
 public class Stamina extends IntRangeStat {
 

@@ -1,6 +1,6 @@
 package com.ironhack.domain.characters.wizard.stats.attributes;
 
-import src.domain.characters.stats.IntRangeStat;
+import com.ironhack.domain.characters.stats.IntRangeStat;
 
 public class Mana extends IntRangeStat {
     public Mana(int value) {
