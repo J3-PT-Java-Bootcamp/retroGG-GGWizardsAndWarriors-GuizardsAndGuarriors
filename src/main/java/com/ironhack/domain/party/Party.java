@@ -1,8 +1,8 @@
-package com.ironhack;
+package com.ironhack.domain.party;
+
+import com.ironhack.domain.characters.Character;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Party {
     protected ArrayList<Character> charactersList;
@@ -13,14 +13,17 @@ public class Party {
 
     public Party(Character[] characters) {
         this.charactersList = new ArrayList<Character>();
-        for (Character character:characters) {
-            this.addPartyMember(character);
-        }
+        this.addPartyMembers(characters);
     }
 
     public void addPartyMember(Character character) {
         this.charactersList.add(character);
     }
 
+    public void addPartyMembers(Character[] characters) {
+        for (Character character : characters) {
+            this.addPartyMember(character);
+        }
+    }
 
 }
