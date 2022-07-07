@@ -1,13 +1,7 @@
 package com.ironhack.domain.characters;
 
-<<<<<<<< HEAD:src/domain/characters/Character.java
-package src.domain.characters;
-
-import src.domain.characters.stats.BaseStats;
-import src.domain.characters.stats.CurrentBaseStats;
-========
-package com.ironhack;
->>>>>>>> develop:src/main/java/com/ironhack/Character.java
+import com.ironhack.domain.characters.stats.BaseStats;
+import com.ironhack.domain.characters.stats.CurrentBaseStats;
 
 public abstract class Character {
     int id;

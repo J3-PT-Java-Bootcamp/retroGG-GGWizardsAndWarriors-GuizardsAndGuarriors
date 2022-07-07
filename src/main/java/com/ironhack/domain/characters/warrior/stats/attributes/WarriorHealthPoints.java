@@ -1,6 +1,7 @@
 package com.ironhack.domain.characters.warrior.stats.attributes;
 
-import src.domain.characters.stats.attributes.HealthPoints;
+
+import com.ironhack.domain.characters.stats.attributes.HealthPoints;
 
 public class WarriorHealthPoints extends HealthPoints {
 

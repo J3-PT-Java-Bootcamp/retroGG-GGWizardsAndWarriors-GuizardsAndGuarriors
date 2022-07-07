@@ -1,8 +1,9 @@
 package com.ironhack.domain.characters.wizard;
 
-import src.domain.characters.Character;
-import src.domain.characters.wizard.stats.WizardBaseStats;
-import src.domain.characters.wizard.stats.WizardCurrentStats;
+
+import com.ironhack.domain.characters.Character;
+import com.ironhack.domain.characters.wizard.stats.WizardBaseStats;
+import com.ironhack.domain.characters.wizard.stats.WizardCurrentStats;
 
 public class Wizard extends Character {
 

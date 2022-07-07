@@ -1,11 +1,5 @@
 package com.ironhack.domain.party;
 
-<<<<<<<< HEAD:src/domain/party/Party.java
-package src.domain.party;
-========
-package com.ironhack;
->>>>>>>> develop:src/main/java/com/ironhack/Party.java
-
 import com.ironhack.domain.characters.Character;
 
 import java.util.ArrayList;

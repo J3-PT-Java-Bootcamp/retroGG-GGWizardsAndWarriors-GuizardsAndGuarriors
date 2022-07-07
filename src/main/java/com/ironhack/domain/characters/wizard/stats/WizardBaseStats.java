@@ -1,9 +1,9 @@
 package com.ironhack.domain.characters.wizard.stats;
 
-import src.domain.characters.stats.BaseStats;
-import src.domain.characters.wizard.stats.attributes.Intelligence;
-import src.domain.characters.wizard.stats.attributes.Mana;
-import src.domain.characters.wizard.stats.attributes.WizardHealthPoints;
+import com.ironhack.domain.characters.stats.BaseStats;
+import com.ironhack.domain.characters.wizard.stats.attributes.Intelligence;
+import com.ironhack.domain.characters.wizard.stats.attributes.Mana;
+import com.ironhack.domain.characters.wizard.stats.attributes.WizardHealthPoints;
 
 public class WizardBaseStats extends BaseStats {
 

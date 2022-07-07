@@ -1,8 +1,8 @@
 package com.ironhack.domain.characters.warrior;
 
-import src.domain.characters.Character;
-import src.domain.characters.warrior.stats.WarriorBaseStats;
-import src.domain.characters.warrior.stats.WarriorCurrentStats;
+import com.ironhack.domain.characters.Character;
+import com.ironhack.domain.characters.warrior.stats.WarriorBaseStats;
+import com.ironhack.domain.characters.warrior.stats.WarriorCurrentStats;
 
 public class Warrior extends Character {
 
