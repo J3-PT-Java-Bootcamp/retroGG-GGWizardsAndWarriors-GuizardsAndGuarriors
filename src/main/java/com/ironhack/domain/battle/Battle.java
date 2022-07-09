@@ -1,6 +1,6 @@
 package com.ironhack.domain.battle;
 
-import src.domain.party.Party;
+import com.ironhack.domain.party.Party;
 
 import java.util.ArrayList;
 

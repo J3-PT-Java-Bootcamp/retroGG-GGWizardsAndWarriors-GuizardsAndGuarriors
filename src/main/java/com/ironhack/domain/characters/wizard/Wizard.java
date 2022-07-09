@@ -3,10 +3,8 @@ package com.ironhack.domain.characters.wizard;
 
 import com.ironhack.domain.characters.Character;
 import com.ironhack.domain.characters.behaviours.Attacker;
-import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
 import com.ironhack.domain.characters.wizard.stats.WizardBaseStats;
 import com.ironhack.domain.characters.wizard.stats.WizardCurrentStats;
-import com.ironhack.domain.characters.wizard.stats.attributes.Mana;
 
 public class Wizard extends Character implements Attacker {
 
@@ -31,15 +29,15 @@ public class Wizard extends Character implements Attacker {
 
     @Override
     public void attack() {
-        int currentMana = getCurrentStats().getMana().getValue();
-        int currentIntelligence = getCurrentStats().getIntelligence().getValue();
-        if(currentMana >= 5) {
-            int damage = currentIntelligence;
-            getCurrentStats().setMana(new Mana(currentMana - 5));;
-            System.out.println("Fireball: Total damage is " + damage);
-        } else{
+        int currentMana = getCurrentStats().getMana();
+        int currentIntelligence = getCurrentStats().getIntelligence();
+        if (currentMana >= 5) {
+            getCurrentStats().setMana(currentMana - 5);
+            ;
+            System.out.println("Fireball: Total damage is " + currentIntelligence);
+        } else {
             int damage = 2;
-            getCurrentStats().setMana(new Mana(currentMana + 1));;
+            getCurrentStats().setMana(currentMana + 1);
             System.out.println("Staff Hit: Total damage is " + damage);
         }
 

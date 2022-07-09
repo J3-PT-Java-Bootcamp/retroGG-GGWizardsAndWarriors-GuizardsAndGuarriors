@@ -4,7 +4,6 @@ import com.ironhack.domain.characters.Character;
 import com.ironhack.domain.characters.behaviours.Attacker;
 import com.ironhack.domain.characters.warrior.stats.WarriorBaseStats;
 import com.ironhack.domain.characters.warrior.stats.WarriorCurrentStats;
-import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
 
 public class Warrior extends Character implements Attacker {
 
@@ -29,15 +28,14 @@ public class Warrior extends Character implements Attacker {
 
     @Override
     public void attack() {
-        int currentStamina = getCurrentStats().getStamina().getValue();
-        int currentStrength = getCurrentStats().getStrength().getValue();
-        if(currentStamina >= 5) {
-            int damage = currentStrength;
-            getCurrentStats().setStamina(new Stamina(currentStamina - 5));
-            System.out.println("Heavy attack: Total damage is " + damage);
-        } else{
-            int damage = currentStrength/2;
-            getCurrentStats().setStamina(new Stamina(currentStamina + 1));
+        int currentStamina = getCurrentStats().getStamina();
+        int currentStrength = getCurrentStats().getStrength();
+        if (currentStamina >= 5) {
+            getCurrentStats().setStamina(currentStamina - 5);
+            System.out.println("Heavy attack: Total damage is " + currentStrength);
+        } else {
+            int damage = currentStrength / 2;
+            getCurrentStats().setStamina(currentStamina + 1);
             System.out.println("Weak attack: Total damage is " + damage);
         }
     }

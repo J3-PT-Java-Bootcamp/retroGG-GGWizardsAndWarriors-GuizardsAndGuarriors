@@ -1,5 +1,7 @@
 package com.ironhack.domain.graveyard;
 
+import com.ironhack.domain.characters.Character;
+
 import java.util.ArrayList;
 
 public class Graveyard {
