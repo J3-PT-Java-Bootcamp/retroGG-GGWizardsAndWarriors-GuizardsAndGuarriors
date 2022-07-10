@@ -1,77 +1,123 @@
 package com.ironhack.domain.party;
 
+import com.ironhack.domain.characters.Character;
+import com.ironhack.domain.characters.warrior.Warrior;
+import com.ironhack.domain.characters.warrior.stats.WarriorBaseStats;
+import com.ironhack.domain.characters.warrior.stats.WarriorCurrentStats;
+import com.ironhack.domain.characters.wizard.Wizard;
+import com.ironhack.domain.characters.wizard.stats.WizardBaseStats;
+import com.ironhack.domain.characters.wizard.stats.WizardCurrentStats;
+import com.ironhack.domain.characters.wizard.stats.attributes.Intelligence;
+import com.ironhack.domain.characters.wizard.stats.attributes.Mana;
+import com.ironhack.domain.characters.wizard.stats.attributes.WizardHealthPoints;
 import net.datafaker.Faker;
 
 public class PartyBuilderRandom {
 
-  static Faker faker = new Faker();
-  private static int MAX_HP = 200;
-  private static int MIN_HP = 100;
-  private static int MAX_STAMINA = 50;
-  private static int MIN_STAMINA = 10;
-  private static int MAX_STRENGTH = 10;
-  private static int MIN_STRENGTH = 1;
-  private static int MAX_MANA = 50;
-  private static int MIN_MANA = 10;
-  private static int MAX_INTELLIGENCE = 50;
-  private static int MIN_INTELLIGENCE = 1;
-
-  private static String[] randomListName;
+    static Faker faker = new Faker();
+    private static int MAX_HP = 200;
+    private static int MIN_HP = 100;
+    private static int MAX_STAMINA = 50;
+    private static int MIN_STAMINA = 10;
+    private static int MAX_STRENGTH = 10;
+    private static int MIN_STRENGTH = 1;
+    private static int MAX_MANA = 50;
+    private static int MIN_MANA = 10;
+    private static int MAX_INTELLIGENCE = 50;
+    private static int MIN_INTELLIGENCE = 1;
 
 
-  public PartyBuilderRandom() {
-    randomListName = fillListName(30);
-  }
-
-  public static String[] fillListName(int numElements){
-    for (int i = 0; i < numElements; i++) {
-      String randomName = faker.funnyName().name();
-      randomListName[i] = randomName;
-    }
-    return randomListName;
-  }
+    private static String[] randomListName;
 
 
-  public void getRandomCharacters() {
-  }
-
-  public static Party buildParty(int size) {
-    Party party = new Party();
-
-    for (int i = 0; i < size; i++) {
-      String name = getRandomName();
+    public PartyBuilderRandom() {
+        randomListName = fillListName(30);
     }
 
-    int hp = getRandomInt(MAX_HP, MIN_HP);
-    int stamina = getRandomInt(MAX_STAMINA, MIN_STAMINA);
-    int strength = getRandomInt(MAX_STRENGTH, MIN_STRENGTH);
-    int mana = getRandomInt(MAX_MANA, MIN_MANA);
-    int intelligence = getRandomInt(MAX_INTELLIGENCE, MIN_INTELLIGENCE);
-    return party;
-  }
-
-  public static int getRandomInt(int max, int min) {
-    return (int) (Math.random() * (max - min)) + min;
-  }
-
-  private static String getRandomName() {
-    int index = (int) (Math.random() * randomListName.length);
-    String name = randomListName[index];
-
-    if (nameTaken(name)) {
-      name = name + " Jr.";
+    public static String[] fillListName(int numElements) {
+        for (int i = 0; i < numElements; i++) {
+            String randomName = faker.funnyName().name();
+            randomListName[i] = randomName;
+        }
+        return randomListName;
     }
-    return name;
-  }
 
-  private static boolean nameTaken(String name) {
-    for (String takenName : randomListName) {
-      if (takenName.equals(name)) {
-        return true;
-      }
+
+    public Character getRandomCharacters() {
+        int idCount = 0;
+        int type = getRandomIntType();
+        String name = getRandomName();
+        WizardHealthPoints hp = new WizardHealthPoints(getRandomIntHp());
+        int stamina = getRandomIntStamina();
+        int strength = getRandomIntStrength();
+        Mana mana = new Mana(getRandomIntMana());
+        Intelligence intelligence = new Intelligence(getRandomIntIntelligence());
+        WizardBaseStats wizardBaseStats = new WizardBaseStats(hp, mana, intelligence);
+        WizardCurrentStats wizardCurrentStats = new WizardCurrentStats(hp, mana, intelligence);
+        WarriorBaseStats warriorBaseStats = new WarriorBaseStats(hp, stamina, strength);
+        WarriorCurrentStats warriorCurrentStats = new WarriorCurrentStats(hp, stamina, strength);
+        if (getRandomIntType() == 1) {
+            Wizard wizardChar = new Wizard(idCount++, name, wizardBaseStats, wizardCurrentStats, true);
+            return wizardChar;
+        }
+        Warrior warriorChar = new Warrior(idCount++, name, warriorBaseStats, warriorCurrentStats, true);
+        return warriorChar;
     }
-    return false;
-  }
+
+    public static Party buildParty(int size) {
+        Party party = new Party();
+
+        for (int i = 0; i < size; i++) {
+      //  var character1 = getRandomCharacters();
+
+
+        }
+        return party;
+    }
+
+    private static int getRandomIntHp() {
+        return (int) ( Math.random() * ( MAX_HP - MIN_HP ) + MIN_HP );
+    }
+
+    private static int getRandomIntStamina() {
+        return (int) ( Math.random() * ( MAX_STAMINA - MIN_STAMINA ) + MIN_STAMINA );
+    }
+
+    private static int getRandomIntStrength() {
+        return (int) ( Math.random() * ( MAX_STRENGTH - MIN_STRENGTH ) + MIN_STRENGTH );
+    }
+
+    private static int getRandomIntMana() {
+        return (int) ( Math.random() * ( MAX_MANA - MIN_MANA ) + MIN_MANA );
+    }
+
+    private static int getRandomIntIntelligence() {
+        return (int) ( Math.random() * ( MAX_INTELLIGENCE - MIN_INTELLIGENCE ) + MIN_INTELLIGENCE );
+    }
+
+    private static int getRandomIntType() {
+        return (int) ( Math.random() * ( 2 - 1 ) + 1 );
+    }
+
+
+    private static String getRandomName() {
+        int index = (int) ( Math.random() * randomListName.length );
+        String name = randomListName[index];
+
+        if (nameTaken(name)) {
+            name = name + " Jr.";
+        }
+        return name;
+    }
+
+    private static boolean nameTaken(String name) {
+        for (String takenName : randomListName) {
+            if (takenName.equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 

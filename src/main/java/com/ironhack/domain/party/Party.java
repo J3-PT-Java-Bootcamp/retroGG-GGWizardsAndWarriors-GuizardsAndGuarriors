@@ -5,6 +5,7 @@ import com.ironhack.domain.characters.Character;
 import java.util.ArrayList;
 
 public class Party {
+
     protected ArrayList<Character> charactersList;
 
     public Party() {

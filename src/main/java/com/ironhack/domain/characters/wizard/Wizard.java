@@ -3,6 +3,8 @@ package com.ironhack.domain.characters.wizard;
 
 import com.ironhack.domain.characters.Character;
 import com.ironhack.domain.characters.behaviours.Attacker;
+import com.ironhack.domain.characters.stats.BaseStats;
+import com.ironhack.domain.characters.stats.CurrentBaseStats;
 import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
 import com.ironhack.domain.characters.wizard.stats.WizardBaseStats;
 import com.ironhack.domain.characters.wizard.stats.WizardCurrentStats;
@@ -12,6 +14,7 @@ public class Wizard extends Character implements Attacker {
 
     private final WizardBaseStats baseStats;
     private final WizardCurrentStats currentStats;
+
 
     public Wizard(int id, String name, WizardBaseStats baseStats, WizardCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);

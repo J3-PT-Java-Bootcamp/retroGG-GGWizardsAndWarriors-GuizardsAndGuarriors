@@ -3,7 +3,7 @@ package com.ironhack.domain.characters;
 import com.ironhack.domain.characters.stats.BaseStats;
 import com.ironhack.domain.characters.stats.CurrentBaseStats;
 
-public abstract class Character {
+public class Character {
     int id;
     String name;
     private final BaseStats baseStats;

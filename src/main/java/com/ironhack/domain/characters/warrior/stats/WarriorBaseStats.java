@@ -4,14 +4,14 @@ package com.ironhack.domain.characters.warrior.stats;
 import com.ironhack.domain.characters.stats.BaseStats;
 import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
 import com.ironhack.domain.characters.warrior.stats.attributes.Strength;
-import com.ironhack.domain.characters.warrior.stats.attributes.WarriorHealthPoints;
+import com.ironhack.domain.characters.wizard.stats.attributes.WizardHealthPoints;
 
 public class WarriorBaseStats extends BaseStats {
 
     private final Stamina stamina;
     private final Strength strength;
 
-    public WarriorBaseStats(WarriorHealthPoints hp, Stamina stamina, Strength strength) {
+    public WarriorBaseStats(WizardHealthPoints hp, int stamina, int strength) {
         super(hp);
         this.stamina = stamina;
         this.strength = strength;
