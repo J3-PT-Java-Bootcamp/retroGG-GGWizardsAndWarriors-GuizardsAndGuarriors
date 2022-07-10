@@ -1,8 +1,13 @@
 package com.ironhack;
 
+import com.ironhack.domain.party.Party;
+import com.ironhack.domain.party.PartyBuilderRandom;
+import net.datafaker.Faker;
+
 public class Main {
     public static void main(String[] args) {
 
+        var faker = new Faker();
 //        Party party1 = new Party();
 //        Party party2 = new Party();
 //
@@ -18,5 +23,8 @@ public class Main {
 //
 //        Battle battle = new Battle(party1, party2);
 //        battle.start();
+
+        Party party = PartyBuilderRandom.buildParty(30);
+
     }
 }
