@@ -17,7 +17,7 @@ public class Wizard extends Character {
     private Wizard() {
         super();
     }
-    
+
     private Wizard(int id, String name, WizardBaseStats baseStats, WizardCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);
         this.baseStats = baseStats;
