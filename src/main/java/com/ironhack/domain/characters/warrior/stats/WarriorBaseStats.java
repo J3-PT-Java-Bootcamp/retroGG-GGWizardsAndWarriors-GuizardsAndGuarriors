@@ -24,4 +24,12 @@ public class WarriorBaseStats extends BaseStats {
     public Strength getStrength() {
         return strength;
     }
+
+    @Override
+    public String toString() {
+        return String.format(super.toString() + """
+                Stamina= %d
+                Strength= %d
+                """, stamina.getValue(), strength.getValue());
+    }
 }

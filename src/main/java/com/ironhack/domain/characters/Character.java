@@ -21,7 +21,8 @@ public abstract class Character implements Attacker {
         this.currentStats = currentStats;
     }
 
-    protected Character() {}
+    protected Character() {
+    }
 
     public int getId() {
         return id;
@@ -57,7 +58,7 @@ public abstract class Character implements Attacker {
 
     public void decreaseHealthPoints(Integer quantity) {
         this.currentStats.setHealthPoints(quantity);
-        if(this.currentStats.getHp() <= 0) {
+        if (this.currentStats.getHp() <= 0) {
             this.die();
         }
     }
@@ -73,5 +74,16 @@ public abstract class Character implements Attacker {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                =================
+                %d - %s
+                =================
+                Base stats
+                %s
+                """, this.id, this.name, this.baseStats);
     }
 }

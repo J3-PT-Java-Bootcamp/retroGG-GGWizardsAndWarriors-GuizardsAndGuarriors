@@ -51,6 +51,5 @@ public class Wizard extends Character {
             this.currentStats.addMana(MANA_RECOVER);
             System.out.println("Staff Hit: Total damage is " + STAFF_DAMAGE);
         }
-
     }
 }

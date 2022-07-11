@@ -40,4 +40,11 @@ public class Party {
         }
     }
 
+    @Override
+    public String toString() {
+        return String.format("""
+                Party
+                %s
+                """, this.charactersList);
+    }
 }

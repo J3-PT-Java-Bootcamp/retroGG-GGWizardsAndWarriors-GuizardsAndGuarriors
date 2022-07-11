@@ -13,4 +13,9 @@ public class BaseStats {
     public HealthPoints getHp() {
         return hp;
     }
+
+    @Override
+    public String toString() {
+        return String.format("HP= %d\n", hp.getValue());
+    }
 }
