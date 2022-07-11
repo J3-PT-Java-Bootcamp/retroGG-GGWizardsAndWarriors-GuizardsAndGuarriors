@@ -1,5 +1,6 @@
 package com.ironhack.domain.battle;
 
+import com.ironhack.domain.characters.Character;
 import com.ironhack.domain.graveyard.Graveyard;
 import com.ironhack.domain.party.Party;
 
@@ -15,6 +16,12 @@ public class Battle {
         graveyard = new Graveyard();
     }
 
+    private void printKill(Character dead, Character killer) {
+        System.out.printf("Character %s has been killed by %s. The gravedigger is preparing a tomb...\n", dead.getName(), killer.getName());
+        System.out.printf("Burying %s...\n", dead.getName());
+        System.out.printf("%s spirit will remain in out hearts <3\n", dead.getName());
+    }
+
     public void start() {
         System.out.println("The battle is about to start...");
         while (!isFinished()) {
@@ -22,18 +29,26 @@ public class Battle {
             var character1 = party1.getRandomMember();
             var character2 = party2.getRandomMember();
             System.out.printf("Next turn: %s vs %s%n", character1.getName(), character2.getName());
-            System.out.println();
             Duel.fight(character1, character2);
             if (!character1.isAlive()) {
+                printKill(character1, character2);
                 party1.removeMember(character1);
                 graveyard.bury(character1);
             }
             if (!character2.isAlive()) {
+                printKill(character2, character1);
                 party2.removeMember(character2);
                 graveyard.bury(character2);
             }
         }
         System.out.println("The battle has ended!");
+        if (party1.isEmpty() && party2.isEmpty()) {
+            System.out.println("It's a draw... both teams died entirely.");
+        } else if (party1.isEmpty()) {
+            System.out.println("Party one won!");
+        } else if (party2.isEmpty()) {
+            System.out.println("Party two won!");
+        }
     }
 
     private boolean isFinished() {
