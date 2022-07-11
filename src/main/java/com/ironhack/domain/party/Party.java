@@ -3,6 +3,7 @@ package com.ironhack.domain.party;
 import com.ironhack.domain.characters.Character;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Party {
     protected ArrayList<Character> charactersList;
@@ -13,16 +14,29 @@ public class Party {
 
     public Party(Character[] characters) {
         this.charactersList = new ArrayList<Character>();
-        this.addPartyMembers(characters);
+        this.addMembers(characters);
     }
 
-    public void addPartyMember(Character character) {
+    public boolean isEmpty() {
+        return this.charactersList.size() <= 0;
+    }
+
+    //TODO: Extract randomer
+    public Character getRandomMember() {
+        Random randomer = new Random();
+        var randomIndex = randomer.nextInt(this.charactersList.size());
+        return this.charactersList.get(randomIndex);
+    }
+    public void removeMember(Character character) {
+        this.charactersList.remove(character);
+    }
+    public void addMember(Character character) {
         this.charactersList.add(character);
     }
 
-    public void addPartyMembers(Character[] characters) {
+    public void addMembers(Character[] characters) {
         for (Character character : characters) {
-            this.addPartyMember(character);
+            this.addMember(character);
         }
     }
 

@@ -4,6 +4,8 @@ import com.ironhack.domain.characters.behaviours.Attacker;
 import com.ironhack.domain.characters.stats.BaseStats;
 import com.ironhack.domain.characters.stats.CurrentBaseStats;
 
+import java.util.Objects;
+
 public abstract class Character implements Attacker {
     private int id;
     private String name;
@@ -58,5 +60,18 @@ public abstract class Character implements Attacker {
         if(this.currentStats.getHp() <= 0) {
             this.die();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Character character = (Character) o;
+        return id == character.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
