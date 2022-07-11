@@ -1,14 +1,15 @@
 package com.ironhack.domain.characters;
 
+import com.ironhack.domain.characters.behaviours.Attacker;
 import com.ironhack.domain.characters.stats.BaseStats;
 import com.ironhack.domain.characters.stats.CurrentBaseStats;
 
-public abstract class Character {
-    int id;
-    String name;
-    private final BaseStats baseStats;
-    private final CurrentBaseStats currentStats;
-    Boolean isAlive;
+public abstract class Character implements Attacker {
+    private int id;
+    private String name;
+    private BaseStats baseStats;
+    private CurrentBaseStats currentStats;
+    private Boolean isAlive;
 
     public Character(int id, String name, BaseStats baseStats, CurrentBaseStats currentStats, Boolean isAlive) {
         this.id = id;
@@ -17,6 +18,8 @@ public abstract class Character {
         this.isAlive = isAlive;
         this.currentStats = currentStats;
     }
+
+    protected Character() {}
 
     public int getId() {
         return id;
@@ -34,12 +37,12 @@ public abstract class Character {
         this.name = name;
     }
 
-    public Boolean getAlive() {
+    public Boolean isAlive() {
         return isAlive;
     }
 
-    public void setAlive(Boolean alive) {
-        isAlive = alive;
+    public void die() {
+        isAlive = false;
     }
 
     public BaseStats getBaseStats() {
@@ -48,5 +51,12 @@ public abstract class Character {
 
     public CurrentBaseStats getCurrentStats() {
         return this.currentStats;
+    }
+
+    public void decreaseHealthPoints(Integer quantity) {
+        this.currentStats.setHealthPoints(quantity);
+        if(this.currentStats.getHp() <= 0) {
+            this.die();
+        }
     }
 }

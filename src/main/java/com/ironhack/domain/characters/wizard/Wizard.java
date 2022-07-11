@@ -2,21 +2,32 @@ package com.ironhack.domain.characters.wizard;
 
 
 import com.ironhack.domain.characters.Character;
-import com.ironhack.domain.characters.behaviours.Attacker;
 import com.ironhack.domain.characters.wizard.stats.WizardBaseStats;
 import com.ironhack.domain.characters.wizard.stats.WizardCurrentStats;
+import com.ironhack.domain.characters.wizard.stats.attributes.Intelligence;
+import com.ironhack.domain.characters.wizard.stats.attributes.Mana;
 
-public class Wizard extends Character implements Attacker {
+public class Wizard extends Character {
 
-    private final WizardBaseStats baseStats;
-    private final WizardCurrentStats currentStats;
+    private final int STAFF_DAMAGE = 2;
+    private final int MANA_RECOVER = 1;
+    private WizardBaseStats baseStats;
+    private WizardCurrentStats currentStats;
 
-    public Wizard(int id, String name, WizardBaseStats baseStats, WizardCurrentStats currentStats, Boolean isAlive) {
+    private Wizard() {
+        super();
+    }
+    
+    private Wizard(int id, String name, WizardBaseStats baseStats, WizardCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);
         this.baseStats = baseStats;
         this.currentStats = currentStats;
     }
 
+    public static Wizard create(int id, String name, WizardBaseStats baseStats, Boolean isAlive) {
+        var currentStats = new WizardCurrentStats(baseStats.getHp().getValue(), baseStats.getMana().getValue(),baseStats.getIntelligence().getValue());
+        return new Wizard(id, name, baseStats, currentStats, isAlive);
+    }
     @Override
     public WizardBaseStats getBaseStats() {
         return baseStats;
@@ -28,17 +39,17 @@ public class Wizard extends Character implements Attacker {
     }
 
     @Override
-    public void attack() {
-        int currentMana = getCurrentStats().getMana();
-        int currentIntelligence = getCurrentStats().getIntelligence();
+    public void attack(Character attacked) {
+        int currentMana = this.currentStats.getMana();
+        int currentIntelligence = this.currentStats.getIntelligence();
         if (currentMana >= 5) {
-            getCurrentStats().setMana(currentMana - 5);
-            ;
+            attacked.decreaseHealthPoints(currentIntelligence);
+            this.currentStats.setMana(currentMana - 5);
             System.out.println("Fireball: Total damage is " + currentIntelligence);
         } else {
-            int damage = 2;
-            getCurrentStats().setMana(currentMana + 1);
-            System.out.println("Staff Hit: Total damage is " + damage);
+            attacked.decreaseHealthPoints(STAFF_DAMAGE);
+            this.currentStats.addMana(MANA_RECOVER);
+            System.out.println("Staff Hit: Total damage is " + STAFF_DAMAGE);
         }
 
     }

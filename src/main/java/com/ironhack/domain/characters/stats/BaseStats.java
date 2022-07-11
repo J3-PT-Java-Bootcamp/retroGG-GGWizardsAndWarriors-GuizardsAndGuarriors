@@ -9,4 +9,8 @@ public class BaseStats {
     public BaseStats(HealthPoints hp) {
         this.hp = hp;
     }
+
+    public HealthPoints getHp() {
+        return hp;
+    }
 }

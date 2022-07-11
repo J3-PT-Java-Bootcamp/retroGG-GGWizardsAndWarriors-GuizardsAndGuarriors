@@ -7,15 +7,22 @@ import com.ironhack.domain.characters.warrior.stats.WarriorCurrentStats;
 
 public class Warrior extends Character implements Attacker {
 
-    private final WarriorBaseStats baseStats;
-    private final WarriorCurrentStats currentStats;
+    private WarriorBaseStats baseStats;
+    private WarriorCurrentStats currentStats;
 
-    public Warrior(int id, String name, WarriorBaseStats baseStats, WarriorCurrentStats currentStats, Boolean isAlive) {
+    private Warrior() {
+        super();
+    }
+    private Warrior(int id, String name, WarriorBaseStats baseStats, WarriorCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);
         this.baseStats = baseStats;
         this.currentStats = currentStats;
     }
 
+    public static Warrior create(int id, String name, WarriorBaseStats baseStats, Boolean isAlive) {
+        var currentStats = new WarriorCurrentStats(baseStats.getHp().getValue(), baseStats.getStamina().getValue(), baseStats.getStrength().getValue());
+        return new Warrior(id, name, baseStats, currentStats, isAlive);
+    }
     @Override
     public WarriorBaseStats getBaseStats() {
         return baseStats;
@@ -27,7 +34,7 @@ public class Warrior extends Character implements Attacker {
     }
 
     @Override
-    public void attack() {
+    public void attack(Character attacked) {
         int currentStamina = getCurrentStats().getStamina();
         int currentStrength = getCurrentStats().getStrength();
         if (currentStamina >= 5) {

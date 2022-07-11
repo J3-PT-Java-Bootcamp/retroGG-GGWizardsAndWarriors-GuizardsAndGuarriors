@@ -21,6 +21,9 @@ public class WizardCurrentStats extends CurrentBaseStats {
         this.mana = mana;
     }
 
+    public void addMana(Integer quantity) {
+        this.mana += quantity;
+    }
     public Integer getIntelligence() {
         return this.intelligence;
     }

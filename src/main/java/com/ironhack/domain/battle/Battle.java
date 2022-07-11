@@ -1,5 +1,7 @@
 package com.ironhack.domain.battle;
 
+import com.ironhack.domain.characters.warrior.Warrior;
+import com.ironhack.domain.characters.wizard.Wizard;
 import com.ironhack.domain.party.Party;
 
 import java.util.ArrayList;
