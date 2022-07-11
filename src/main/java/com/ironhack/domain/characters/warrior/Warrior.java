@@ -13,6 +13,7 @@ public class Warrior extends Character implements Attacker {
     private Warrior() {
         super();
     }
+
     private Warrior(int id, String name, WarriorBaseStats baseStats, WarriorCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);
         this.baseStats = baseStats;
@@ -23,6 +24,7 @@ public class Warrior extends Character implements Attacker {
         var currentStats = new WarriorCurrentStats(baseStats.getHp().getValue(), baseStats.getStamina().getValue(), baseStats.getStrength().getValue());
         return new Warrior(id, name, baseStats, currentStats, isAlive);
     }
+
     @Override
     public WarriorBaseStats getBaseStats() {
         return baseStats;

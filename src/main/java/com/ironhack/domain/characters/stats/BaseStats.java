@@ -1,6 +1,5 @@
 package com.ironhack.domain.characters.stats;
 
-
 import com.ironhack.domain.characters.stats.attributes.HealthPoints;
 
 public class BaseStats {

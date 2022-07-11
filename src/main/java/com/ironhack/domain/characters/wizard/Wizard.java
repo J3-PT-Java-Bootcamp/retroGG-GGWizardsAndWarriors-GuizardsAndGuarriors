@@ -4,8 +4,6 @@ package com.ironhack.domain.characters.wizard;
 import com.ironhack.domain.characters.Character;
 import com.ironhack.domain.characters.wizard.stats.WizardBaseStats;
 import com.ironhack.domain.characters.wizard.stats.WizardCurrentStats;
-import com.ironhack.domain.characters.wizard.stats.attributes.Intelligence;
-import com.ironhack.domain.characters.wizard.stats.attributes.Mana;
 
 public class Wizard extends Character {
 
@@ -25,9 +23,10 @@ public class Wizard extends Character {
     }
 
     public static Wizard create(int id, String name, WizardBaseStats baseStats, Boolean isAlive) {
-        var currentStats = new WizardCurrentStats(baseStats.getHp().getValue(), baseStats.getMana().getValue(),baseStats.getIntelligence().getValue());
+        var currentStats = new WizardCurrentStats(baseStats.getHp().getValue(), baseStats.getMana().getValue(), baseStats.getIntelligence().getValue());
         return new Wizard(id, name, baseStats, currentStats, isAlive);
     }
+
     @Override
     public WizardBaseStats getBaseStats() {
         return baseStats;

@@ -27,9 +27,11 @@ public class Party {
         var randomIndex = randomer.nextInt(this.charactersList.size());
         return this.charactersList.get(randomIndex);
     }
+
     public void removeMember(Character character) {
         this.charactersList.remove(character);
     }
+
     public void addMember(Character character) {
         this.charactersList.add(character);
     }
