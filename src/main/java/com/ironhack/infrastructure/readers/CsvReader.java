@@ -28,6 +28,7 @@ public class CsvReader {
         String line;
         while ((line = reader.readLine()) != null) {
             String[] tokens = line.split(DELIMITER);
+            // CSV header structure name, class, hp, stamina, strength, mana, intelligence
             Optional<String> characterClass = Optional.ofNullable(tokens[1]);
 
             Character currentCharacter;
@@ -64,4 +65,3 @@ public class CsvReader {
 
 }
 
-// id, isAlive, 0 name, 1 class, 2 hp, 3 stamina, 4 strength, 5 mana, 6 intelligence
