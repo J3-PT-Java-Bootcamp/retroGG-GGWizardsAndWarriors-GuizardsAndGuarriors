@@ -1,5 +1,7 @@
 package com.ironhack.domain.graveyard;
 
+import com.ironhack.domain.characters.Character;
+
 import java.util.ArrayList;
 
 public class Graveyard {
@@ -10,7 +12,7 @@ public class Graveyard {
         this.deadCharactersList = new ArrayList<Character>();
     }
 
-    public void addToGraveyard(Character character) {
+    public void bury(Character character) {
         deadCharactersList.add(character);
     }
 

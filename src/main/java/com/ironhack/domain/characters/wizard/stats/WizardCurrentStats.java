@@ -1,34 +1,35 @@
 package com.ironhack.domain.characters.wizard.stats;
 
 import com.ironhack.domain.characters.stats.CurrentBaseStats;
-import com.ironhack.domain.characters.wizard.stats.attributes.Intelligence;
-import com.ironhack.domain.characters.wizard.stats.attributes.Mana;
-import com.ironhack.domain.characters.wizard.stats.attributes.WizardHealthPoints;
 
 public class WizardCurrentStats extends CurrentBaseStats {
 
-    private Mana mana;
-    private Intelligence intelligence;
+    private Integer mana;
+    private Integer intelligence;
 
-    public WizardCurrentStats(WizardHealthPoints hp, Mana mana, Intelligence intelligence) {
+    public WizardCurrentStats(Integer hp, Integer mana, Integer intelligence) {
         super(hp);
         this.mana = mana;
         this.intelligence = intelligence;
     }
 
-    public Mana getMana() {
+    public Integer getMana() {
         return this.mana;
     }
 
-    public void setMana(Mana mana) {
+    public void setMana(Integer mana) {
         this.mana = mana;
     }
 
-    public Intelligence getIntelligence() {
+    public void addMana(Integer quantity) {
+        this.mana += quantity;
+    }
+
+    public Integer getIntelligence() {
         return this.intelligence;
     }
 
-    public void setIntelligence(Intelligence intelligence) {
+    public void setIntelligence(Integer intelligence) {
         this.intelligence = intelligence;
     }
 }

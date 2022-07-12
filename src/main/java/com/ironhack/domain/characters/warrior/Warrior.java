@@ -4,17 +4,27 @@ import com.ironhack.domain.characters.Character;
 import com.ironhack.domain.characters.behaviours.Attacker;
 import com.ironhack.domain.characters.warrior.stats.WarriorBaseStats;
 import com.ironhack.domain.characters.warrior.stats.WarriorCurrentStats;
-import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
+
+import java.util.UUID;
 
 public class Warrior extends Character implements Attacker {
 
-    private final WarriorBaseStats baseStats;
-    private final WarriorCurrentStats currentStats;
+    private WarriorBaseStats baseStats;
+    private WarriorCurrentStats currentStats;
 
-    public Warrior(int id, String name, WarriorBaseStats baseStats, WarriorCurrentStats currentStats, Boolean isAlive) {
+    private Warrior() {
+        super();
+    }
+
+    private Warrior(UUID id, String name, WarriorBaseStats baseStats, WarriorCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);
         this.baseStats = baseStats;
         this.currentStats = currentStats;
+    }
+
+    public static Warrior create(UUID id, String name, WarriorBaseStats baseStats) {
+        var currentStats = new WarriorCurrentStats(baseStats.getHp().getValue(), baseStats.getStamina().getValue(), baseStats.getStrength().getValue());
+        return new Warrior(id, name, baseStats, currentStats, true);
     }
 
     @Override
@@ -28,16 +38,17 @@ public class Warrior extends Character implements Attacker {
     }
 
     @Override
-    public void attack() {
-        int currentStamina = getCurrentStats().getStamina().getValue();
-        int currentStrength = getCurrentStats().getStrength().getValue();
-        if(currentStamina >= 5) {
-            int damage = currentStrength;
-            getCurrentStats().setStamina(new Stamina(currentStamina - 5));
-            System.out.println("Heavy attack: Total damage is " + damage);
-        } else{
-            int damage = currentStrength/2;
-            getCurrentStats().setStamina(new Stamina(currentStamina + 1));
+    public void attack(Character attacked) {
+        int currentStamina = getCurrentStats().getStamina();
+        int currentStrength = getCurrentStats().getStrength();
+        if (currentStamina >= 5) {
+            attacked.decreaseHealthPoints(currentStrength);
+            getCurrentStats().setStamina(currentStamina - 5);
+            System.out.println("Heavy attack: Total damage is " + currentStrength);
+        } else {
+            int damage = currentStrength / 2;
+            attacked.decreaseHealthPoints(damage);
+            getCurrentStats().setStamina(currentStamina + 1);
             System.out.println("Weak attack: Total damage is " + damage);
         }
     }

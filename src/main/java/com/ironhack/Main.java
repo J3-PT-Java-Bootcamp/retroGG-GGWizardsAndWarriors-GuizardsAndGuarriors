@@ -2,7 +2,12 @@ package com.ironhack;
 
 public class Main {
     public static void main(String[] args) {
-
+//        var stats = new WizardBaseStats(new WizardHealthPoints(100), new Mana(150), new Intelligence(125));
+//        var wizard = Wizard.create(1, "Pepe", stats);
+//        var party = new Party();
+//        party.addMember(wizard);
+//        party.addMember(wizard);
+//        System.out.println(party);
 //        Party party1 = new Party();
 //        Party party2 = new Party();
 //

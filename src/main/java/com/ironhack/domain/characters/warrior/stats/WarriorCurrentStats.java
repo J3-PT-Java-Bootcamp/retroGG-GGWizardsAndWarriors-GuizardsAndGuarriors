@@ -1,34 +1,31 @@
 package com.ironhack.domain.characters.warrior.stats;
 
 import com.ironhack.domain.characters.stats.CurrentBaseStats;
-import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
-import com.ironhack.domain.characters.warrior.stats.attributes.Strength;
-import com.ironhack.domain.characters.warrior.stats.attributes.WarriorHealthPoints;
 
 public class WarriorCurrentStats extends CurrentBaseStats {
 
-    private Stamina stamina;
-    private Strength strength;
+    private Integer stamina;
+    private Integer strength;
 
-    public WarriorCurrentStats(WarriorHealthPoints hp, Stamina stamina, Strength strength) {
+    public WarriorCurrentStats(Integer hp, Integer stamina, Integer strength) {
         super(hp);
         this.strength = strength;
         this.stamina = stamina;
     }
 
-    public Stamina getStamina() {
+    public Integer getStamina() {
         return this.stamina;
     }
 
-    public Strength getStrength() {
+    public Integer getStrength() {
         return this.strength;
     }
 
-    public void setStamina(Stamina stamina) {
+    public void setStamina(Integer stamina) {
         this.stamina = stamina;
     }
 
-    public void setStrength(Strength strength) {
+    public void setStrength(Integer strength) {
         this.strength = strength;
     }
 }
