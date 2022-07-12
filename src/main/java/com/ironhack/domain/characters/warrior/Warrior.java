@@ -5,6 +5,8 @@ import com.ironhack.domain.characters.behaviours.Attacker;
 import com.ironhack.domain.characters.warrior.stats.WarriorBaseStats;
 import com.ironhack.domain.characters.warrior.stats.WarriorCurrentStats;
 
+import java.util.UUID;
+
 public class Warrior extends Character implements Attacker {
 
     private WarriorBaseStats baseStats;
@@ -14,15 +16,15 @@ public class Warrior extends Character implements Attacker {
         super();
     }
 
-    private Warrior(int id, String name, WarriorBaseStats baseStats, WarriorCurrentStats currentStats, Boolean isAlive) {
+    private Warrior(UUID id, String name, WarriorBaseStats baseStats, WarriorCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);
         this.baseStats = baseStats;
         this.currentStats = currentStats;
     }
 
-    public static Warrior create(int id, String name, WarriorBaseStats baseStats, Boolean isAlive) {
+    public static Warrior create(UUID id, String name, WarriorBaseStats baseStats) {
         var currentStats = new WarriorCurrentStats(baseStats.getHp().getValue(), baseStats.getStamina().getValue(), baseStats.getStrength().getValue());
-        return new Warrior(id, name, baseStats, currentStats, isAlive);
+        return new Warrior(id, name, baseStats, currentStats, true);
     }
 
     @Override

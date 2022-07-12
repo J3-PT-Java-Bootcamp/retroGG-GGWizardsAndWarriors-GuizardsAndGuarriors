@@ -5,15 +5,16 @@ import com.ironhack.domain.characters.stats.BaseStats;
 import com.ironhack.domain.characters.stats.CurrentBaseStats;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public abstract class Character implements Attacker {
-    private int id;
+    private UUID id;
     private String name;
     private BaseStats baseStats;
     private CurrentBaseStats currentStats;
     private Boolean isAlive;
 
-    public Character(int id, String name, BaseStats baseStats, CurrentBaseStats currentStats, Boolean isAlive) {
+    public Character(UUID id, String name, BaseStats baseStats, CurrentBaseStats currentStats, Boolean isAlive) {
         this.id = id;
         this.name = name;
         this.baseStats = baseStats;
@@ -24,12 +25,8 @@ public abstract class Character implements Attacker {
     protected Character() {
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -68,7 +65,7 @@ public abstract class Character implements Attacker {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Character character = (Character) o;
-        return id == character.id;
+        return Objects.equals(id, character.id);
     }
 
     @Override
@@ -80,7 +77,7 @@ public abstract class Character implements Attacker {
     public String toString() {
         return String.format("""
                 =================
-                %d - %s
+                %s - %s
                 =================
                 Base stats
                 %s

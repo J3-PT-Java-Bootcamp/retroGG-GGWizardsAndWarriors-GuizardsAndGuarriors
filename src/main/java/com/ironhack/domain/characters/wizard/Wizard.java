@@ -5,6 +5,8 @@ import com.ironhack.domain.characters.Character;
 import com.ironhack.domain.characters.wizard.stats.WizardBaseStats;
 import com.ironhack.domain.characters.wizard.stats.WizardCurrentStats;
 
+import java.util.UUID;
+
 public class Wizard extends Character {
 
     private final int STAFF_DAMAGE = 2;
@@ -16,15 +18,15 @@ public class Wizard extends Character {
         super();
     }
 
-    private Wizard(int id, String name, WizardBaseStats baseStats, WizardCurrentStats currentStats, Boolean isAlive) {
+    private Wizard(UUID id, String name, WizardBaseStats baseStats, WizardCurrentStats currentStats, Boolean isAlive) {
         super(id, name, baseStats, currentStats, isAlive);
         this.baseStats = baseStats;
         this.currentStats = currentStats;
     }
 
-    public static Wizard create(int id, String name, WizardBaseStats baseStats, Boolean isAlive) {
+    public static Wizard create(UUID id, String name, WizardBaseStats baseStats) {
         var currentStats = new WizardCurrentStats(baseStats.getHp().getValue(), baseStats.getMana().getValue(), baseStats.getIntelligence().getValue());
-        return new Wizard(id, name, baseStats, currentStats, isAlive);
+        return new Wizard(id, name, baseStats, currentStats, true);
     }
 
     @Override
