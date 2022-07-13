@@ -8,15 +8,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ImportCsvUseCase {
+public class PartyCreatorFromCsvUseCase {
 
     private final Scanner scanner;
 
-    public ImportCsvUseCase() {
+    public PartyCreatorFromCsvUseCase() {
         this.scanner = new Scanner(System.in);
     }
 
-    public Party importPartyFromCsv() {
+    public Party run() {
         System.out.println("=======================");
         System.out.println("Let's import a CSV file.");
         System.out.println("What's the file absolute path? ");

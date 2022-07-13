@@ -1,8 +1,5 @@
 package com.ironhack.application;
 
-import com.ironhack.domain.party.Party;
-import com.ironhack.infrastructure.readers.CsvReader;
-
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,10 +7,10 @@ import java.util.Scanner;
 public class Game {
 
     private final Scanner scanner;
-    private final ImportCsvUseCase importCsvUseCase;
+    private final PartyCreatorFromCsvUseCase importCsvUseCase;
     public Game() {
         this.scanner = new Scanner(System.in);
-        this.importCsvUseCase = new ImportCsvUseCase();
+        this.importCsvUseCase = new PartyCreatorFromCsvUseCase();
     }
 
     public void start() throws IOException {
@@ -26,9 +23,12 @@ public class Game {
                 switch (option) {
                     case 1 -> {
                         System.out.println("By hand");
+                        // create party usecase
+                        //generate random enemy party
+                        //battle
                     }
                     case 2 -> {
-                        var party = this.importCsvUseCase.importPartyFromCsv();
+                        var party = this.importCsvUseCase.run();
                         System.out.println(party);
                         System.out.println("Generate random");
                         System.out.println("Battle");
@@ -39,9 +39,7 @@ public class Game {
                         exit = true;
                         System.out.println("See you later!");
                     }
-                    default -> {
-                        System.out.println("The selected option is not valid. Please, select a valid option:");
-                    }
+                    default -> System.out.println("The selected option is not valid. Please, select a valid option:");
                 }
             } catch (InputMismatchException exception) {
                 System.out.println("The selected option is not valid. Please, select a valid option:");
