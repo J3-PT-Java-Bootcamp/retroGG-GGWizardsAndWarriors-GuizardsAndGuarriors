@@ -17,6 +17,10 @@ public class Party {
         this.addMembers(characters);
     }
 
+    public Party(ArrayList<Character> characters) {
+        this.charactersList = new ArrayList<>(characters);
+    }
+
     public boolean isEmpty() {
         return this.charactersList.size() <= 0;
     }
