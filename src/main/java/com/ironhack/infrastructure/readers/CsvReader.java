@@ -42,8 +42,7 @@ public class CsvReader {
                 Optional<String> intelligenceToken = Optional.ofNullable(tokens[6]);
 
                 var name = nameToken.orElse(String.format("NoNameCharacter-%s", uuid));
-
-                switch (characterClass.get().toLowerCase()) {
+                switch (characterClass.get().trim().toLowerCase()) {
                     case "wizard" -> {
                         var stats = new WizardBaseStats(new WizardHealthPoints(hpToken), new Mana(manaToken), new Intelligence(intelligenceToken));
                         currentCharacter = Wizard.create(uuid, name, stats);
