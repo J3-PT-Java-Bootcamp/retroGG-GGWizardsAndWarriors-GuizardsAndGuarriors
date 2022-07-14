@@ -11,10 +11,13 @@ public class Game {
     private final Scanner scanner;
     private final PartyCreatorFromCsvUseCase importCsvUseCase;
     private final PartyCreatorUseCase partyCreatorUseCase;
+    private PartyRandomCreator PartyRandomCreator;
+
     public Game() {
         this.scanner = new Scanner(System.in);
-        this.importCsvUseCase = new PartyCreatorFromCsvUseCase();
+        this.PartyRandomCreator = new PartyRandomCreator();
         this.partyCreatorUseCase = new PartyCreatorUseCase();
+        this.importCsvUseCase = new PartyCreatorFromCsvUseCase();
     }
 
     public void start() throws IOException {
@@ -27,11 +30,11 @@ public class Game {
                 option = this.scanner.nextInt();
                 switch (option) {
                     case 1 -> {
-                        myParty = this.partyCreatorUseCase.run();
+                        myParty = this.PartyRandomCreator.run();
                         System.out.println(myParty);
                         System.out.println("Generate random");
                         System.out.println("Battle");
-                        // create party usecase
+                        // create random party usecase
                         //generate random enemy party
                         //battle
                     }
@@ -41,7 +44,7 @@ public class Game {
                         System.out.println(myParty);
                         System.out.println("Generate by hand");
                         System.out.println("Battle");
-                        // create party usecase
+                        // create party by hand usecase
                         //generate random enemy party
                         //battle
                     }
