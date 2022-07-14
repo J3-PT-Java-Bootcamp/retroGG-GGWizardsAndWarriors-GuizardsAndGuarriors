@@ -3,6 +3,7 @@ package com.ironhack.domain.party;
 import com.ironhack.domain.characters.Character;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Party {
 
@@ -12,7 +13,7 @@ public class Party {
         this.charactersList = new ArrayList<Character>();
     }
 
-    public Party(Character[] characters) {
+    public Party(List<Character> characters) {
         this.charactersList = new ArrayList<Character>();
         this.addPartyMembers(characters);
     }

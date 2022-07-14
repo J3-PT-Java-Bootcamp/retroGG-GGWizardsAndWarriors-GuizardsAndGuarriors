@@ -12,19 +12,22 @@ import com.ironhack.domain.characters.wizard.stats.attributes.Mana;
 import com.ironhack.domain.characters.wizard.stats.attributes.WizardHealthPoints;
 import net.datafaker.Faker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PartyBuilderRandom {
 
     static Faker faker = new Faker();
-    private static int MAX_HP = 200;
-    private static int MIN_HP = 100;
-    private static int MAX_STAMINA = 50;
-    private static int MIN_STAMINA = 10;
-    private static int MAX_STRENGTH = 10;
-    private static int MIN_STRENGTH = 1;
-    private static int MAX_MANA = 50;
-    private static int MIN_MANA = 10;
-    private static int MAX_INTELLIGENCE = 50;
-    private static int MIN_INTELLIGENCE = 1;
+    private static final int MAX_HP = 200;
+    private static final int MIN_HP = 100;
+    private static final int MAX_STAMINA = 50;
+    private static final int MIN_STAMINA = 10;
+    private static final int MAX_STRENGTH = 10;
+    private static final int MIN_STRENGTH = 1;
+    private static final int MAX_MANA = 50;
+    private static final int MIN_MANA = 10;
+    private static final int MAX_INTELLIGENCE = 50;
+    private static final int MIN_INTELLIGENCE = 1;
 
 
     private static String[] randomListName;
@@ -43,7 +46,7 @@ public class PartyBuilderRandom {
     }
 
 
-    public Character getRandomCharacters() {
+    public static Character getRandomCharacters() {
         int idCount = 0;
         int type = getRandomIntType();
         String name = getRandomName();
@@ -65,14 +68,11 @@ public class PartyBuilderRandom {
     }
 
     public static Party buildParty(int size) {
-        Party party = new Party();
-
+        List<Character> characters = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-      //  var character1 = getRandomCharacters();
-
-
+            characters.add(getRandomCharacters());
         }
-        return party;
+        return new Party(characters);
     }
 
     private static int getRandomIntHp() {
