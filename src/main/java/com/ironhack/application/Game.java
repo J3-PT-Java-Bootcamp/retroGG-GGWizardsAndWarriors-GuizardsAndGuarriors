@@ -11,6 +11,7 @@ public class Game {
     private final Scanner scanner;
     private final PartyCreatorFromCsvUseCase importCsvUseCase;
     private final PartyCreatorUseCase partyCreatorUseCase;
+
     public Game() {
         this.scanner = new Scanner(System.in);
         this.importCsvUseCase = new PartyCreatorFromCsvUseCase();
@@ -39,7 +40,7 @@ public class Game {
                         myParty = this.importCsvUseCase.run();
                         System.out.println(myParty);
                         System.out.println("Generate random");
-                        System.out.println("Battle");
+                        printWithColor("Battle", ConsoleColors.RED_BACKGROUND);
                         // Generate random enemy party
                         // Battle
                     }
@@ -53,6 +54,7 @@ public class Game {
                 System.out.println("The selected option is not valid. Please, select a valid option:");
                 this.scanner.next();
             }
+
         }
     }
 
@@ -65,5 +67,9 @@ public class Game {
         System.out.println("\t2 - Import a CSV");
         System.out.println("\t9 - Exit game.");
         System.out.println("Enter an option:");
+    }
+
+    public static void printWithColor(String text, String color) {
+        System.out.println(color + text + ConsoleColors.RESET);
     }
 }
