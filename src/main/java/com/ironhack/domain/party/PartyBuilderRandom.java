@@ -33,8 +33,8 @@ public class PartyBuilderRandom {
     private static String[] randomListName;
 
 
-    public PartyBuilderRandom() {
-        randomListName = fillListName(30);
+
+    public PartyBuilderRandom() {randomListName = fillListName(30);
     }
 
     public static String[] fillListName(int numElements) {

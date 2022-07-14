@@ -4,6 +4,7 @@ import com.ironhack.domain.characters.behaviours.Attacker;
 import com.ironhack.domain.characters.stats.BaseStats;
 import com.ironhack.domain.characters.stats.CurrentBaseStats;
 
+
 import java.util.Objects;
 import java.util.UUID;
 
