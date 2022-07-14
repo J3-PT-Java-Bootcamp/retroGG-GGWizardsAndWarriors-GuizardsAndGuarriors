@@ -35,10 +35,21 @@ public class Game {
                         //generate random enemy party
                         //battle
                     }
+
                     case 2 -> {
+                        myParty = this.partyCreatorUseCase.run();
+                        System.out.println(myParty);
+                        System.out.println("Generate by hand");
+                        System.out.println("Battle");
+                        // create party usecase
+                        //generate random enemy party
+                        //battle
+                    }
+
+                    case 3 -> {
                         myParty = this.importCsvUseCase.run();
                         System.out.println(myParty);
-                        System.out.println("Generate random");
+                        System.out.println("Generate from file");
                         System.out.println("Battle");
                         // Generate random enemy party
                         // Battle
@@ -59,10 +70,11 @@ public class Game {
     private void printMenu() {
         System.out.println("Welcome to GuizardsAndGuarriors!");
         System.out.println("To start playing you should configure a party first.");
-        System.out.println("You can either create a party by hand or import it through a CSV file.");
+        System.out.println("You can create a random party, create the party by hand or import it through a CSV file.");
         System.out.println("How do you want to create the party?");
-        System.out.println("\t1 - Create a party by hand");
-        System.out.println("\t2 - Import a CSV");
+        System.out.println("\t1 - Create a random party");
+        System.out.println("\t2 - Create a party by hand");
+        System.out.println("\t3 - Import a CSV");
         System.out.println("\t9 - Exit game.");
         System.out.println("Enter an option:");
     }
