@@ -1,85 +1,57 @@
 package com.ironhack.domain.battle;
 
-import src.domain.party.Party;
-
-import java.util.ArrayList;
+import com.ironhack.domain.characters.Character;
+import com.ironhack.domain.graveyard.Graveyard;
+import com.ironhack.domain.party.Party;
 
 public class Battle {
 
-    private Party party1;
-    private Party party2;
-    private ArrayList<Character> graveyard;
+    private final Party party1;
+    private final Party party2;
+    private final Graveyard graveyard;
 
     public Battle(Party party1, Party party2) {
         this.party1 = party1;
         this.party2 = party2;
-        graveyard = new ArrayList<>();
+        graveyard = new Graveyard();
     }
 
-//    public void start() {
-//        System.out.println("The battle has started!");
-//
-//        int turn = 1;
-//
-//        while (!isFinished()) {
-//            System.out.println("Turn " + turn);
-//
-//            for (Wizard wizard : party1.getWizards()) {
-//                Character target = getRandomCharacter(party2);
-//                int damage = wizard.getIntelligence();
-//
-//                System.out.println(wizard.getName() + " attacks " + target.getName() + " for " + damage + " damage!");
-//                target.setHp(target.getHp() - damage);
-//
-//                checkDeath(target);
-//            }
-//
-//            for (Warrior warrior : party1.getWarriors()) {
-//                Character target = getRandomCharacter(party2);
-//                int damage = warrior.getStrength();
-//
-//                System.out.println(warrior.getName() + " attacks " + target.getName() + " for " + damage + " damage!");
-//                target.setHp(target.getHp() - damage);
-//
-//                checkDeath(target);
-//            }
-//
-//            turn++;
-//        }
-//
-//        System.out.println("The battle has ended!");
-//
-//        if (party1.getWizards().size() > 0) {
-//            System.out.println("Party 1 has won the battle!");
-//        } else {
-//            System.out.println("Party 2 has won the battle!");
-//        }
-//    }
-//
-//    private boolean isFinished() {
-//        return party1.getWizards().size() == 0 || party2.getWizards().size() == 0;
-//    }
-//
-//    private void checkDeath(Character character) {
-//        if (character.getHp() <= 0) {
-//            System.out.println(character.getName() + " has died!");
-//
-//            if (character instanceof Wizard) {
-//                party1.getWizards().remove(character);
-//            } else if (character instanceof Warrior) {
-//                party1.getWarriors().remove(character);
-//            }
-//
-//            graveyard.add(character);
-//        }
-//    }
-//
-//    private Character getRandomCharacter(Party party) {
-//        ArrayList<Character> characters = new ArrayList<>();
-//        characters.addAll(party.getWizards());
-//        characters.addAll(party.getWarriors());
-//
-//        int index = (int) (Math.random() * characters.size());
-//        return characters.get(index);
-//    }
+    private void printKill(Character dead, Character killer) {
+        System.out.printf("Character %s has been killed by %s. The gravedigger is preparing a tomb...\n", dead.getName(), killer.getName());
+        System.out.printf("Burying %s...\n", dead.getName());
+        System.out.printf("%s spirit will remain in out hearts <3\n", dead.getName());
+    }
+
+    public void start() {
+        System.out.println("The battle is about to start...");
+        while (!isFinished()) {
+            System.out.println("The blind hand is selecting two fighters...");
+            var character1 = party1.getRandomMember();
+            var character2 = party2.getRandomMember();
+            System.out.printf("Next turn: %s vs %s%n", character1.getName(), character2.getName());
+            Duel.fight(character1, character2);
+            if (!character1.isAlive()) {
+                printKill(character1, character2);
+                party1.removeMember(character1);
+                graveyard.bury(character1);
+            }
+            if (!character2.isAlive()) {
+                printKill(character2, character1);
+                party2.removeMember(character2);
+                graveyard.bury(character2);
+            }
+        }
+        System.out.println("The battle has ended!");
+        if (party1.isEmpty() && party2.isEmpty()) {
+            System.out.println("It's a draw... both teams died entirely.");
+        } else if (party1.isEmpty()) {
+            System.out.println("Party one won!");
+        } else if (party2.isEmpty()) {
+            System.out.println("Party two won!");
+        }
+    }
+
+    private boolean isFinished() {
+        return party1.isEmpty() && party2.isEmpty();
+    }
 }

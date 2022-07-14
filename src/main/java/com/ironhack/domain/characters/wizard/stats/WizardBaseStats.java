@@ -23,4 +23,12 @@ public class WizardBaseStats extends BaseStats {
     public Intelligence getIntelligence() {
         return intelligence;
     }
+
+    @Override
+    public String toString() {
+        return String.format(super.toString() + """
+                Mana= %d
+                Intelligence= %d
+                """, mana.getValue(), intelligence.getValue());
+    }
 }
