@@ -6,6 +6,9 @@ import java.util.Optional;
 
 public class Stamina extends IntRangeStat {
 
+    public static final int MAX_VALUE = 50;
+    public static final int MIN_VALUE = 10;
+
     public Stamina(int value) {
         super(value);
     }
@@ -16,12 +19,12 @@ public class Stamina extends IntRangeStat {
 
     @Override
     public int getMaxValue() {
-        return 50;
+        return MAX_VALUE;
     }
 
     @Override
     public int getMinValue() {
-        return 10;
+        return MIN_VALUE;
     }
 
 }
