@@ -85,7 +85,7 @@ public class PartyCreatorUseCase {
 
     private void printOptions() {
         System.out.println("What do you want to do?");
-        System.out.println("\t1 - Create a new character");
+        System.out.println("\t1 - Create a new party");
         System.out.println("\t2 - View the current party characters");
         System.out.println("\t9 - Finish party creation");
         System.out.println("Enter an option:");

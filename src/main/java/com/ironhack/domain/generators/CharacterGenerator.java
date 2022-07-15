@@ -32,7 +32,7 @@ public class CharacterGenerator {
     public static Warrior randomWarrior(){
         UUID uuid = UUID.randomUUID();
         String name = faker.funnyName().name();
-        WarriorHealthPoints healthPoints = new WarriorHealthPoints(faker.random().nextInt(100,200));
+        WarriorHealthPoints healthPoints = new WarriorHealthPoints(faker.random().nextInt());
         Stamina stamina = new Stamina(faker.random().nextInt(10,50));
         Strength strength = new Strength(faker.random().nextInt(1,10));
 

@@ -28,12 +28,6 @@ public class Battle {
         System.out.printf("Burying %s...\n", dead.getName());
         System.out.printf("%s spirit will remain in our hearts <3\n", dead.getName());
     }
-//same method as above but saying that they died at the same time
-    private void printTieKill(Character dead, Character killer) {
-        System.out.printf("Character %s has been killed by %s. The gravedigger is preparing two tombs...  BECAUSE THIS TIME HE DIED KILLING TOO!\n", dead.getName(), killer.getName());
-        System.out.printf("Burying %s and %s...\n", dead.getName(), killer.getName());
-        System.out.printf("%s and %s spirits will remain in our hearts <3\n", dead.getName(), killer.getName());
-    }
 
     public void start() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -43,7 +37,7 @@ public class Battle {
 
         while (!isFinished()) {
             //select combatants to fight
-            System.out.println("Select the combatant from the party ONE from the next list, use its position on the list being 0 the first: ");
+            System.out.println("Select the combatant from the next list, use its position on the list being 0 the first: ");
             System.out.println(party1.toString());
             int answer = 0;
             answer = Integer.parseInt(reader.readLine());
@@ -51,13 +45,6 @@ public class Battle {
             var character2 = party2.getRandomMember();
             System.out.printf("Next turn: %s vs %s%n", character1.getName(), character2.getName());
             Duel.fight(character1, character2);
-            if (!character1.isAlive()&&!character2.isAlive()) {
-                printTieKill(character1, character2);
-                party1.removeMember(character1);
-                party2.removeMember(character2);
-                graveyard.bury(character1);
-                graveyard.bury(character2);
-            }
             if (!character1.isAlive()) {
                 printKill(character1, character2);
                 party1.removeMember(character1);
@@ -68,7 +55,6 @@ public class Battle {
                 party2.removeMember(character2);
                 graveyard.bury(character2);
             }
-
         }
         System.out.println("The battle has ended!");
         if (party1.isEmpty() && party2.isEmpty()) {
@@ -81,6 +67,6 @@ public class Battle {
     }
 
     private boolean isFinished() {
-        return party1.isEmpty() && party2.isEmpty();
+        return party1.isEmpty() || party2.isEmpty();
     }
 }
