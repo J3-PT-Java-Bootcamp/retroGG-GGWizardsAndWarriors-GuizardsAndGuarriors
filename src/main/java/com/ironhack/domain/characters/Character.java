@@ -81,6 +81,6 @@ public abstract class Character implements Attacker {
                 =================
                 Base stats
                 %s
-                """, this.id, this.name, this.baseStats);
+                """, this.getClass().getSimpleName(), this.name, this.baseStats);
     }
 }
