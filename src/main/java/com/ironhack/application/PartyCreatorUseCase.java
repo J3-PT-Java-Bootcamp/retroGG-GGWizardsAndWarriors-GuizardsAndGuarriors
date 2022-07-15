@@ -21,7 +21,6 @@ public class PartyCreatorUseCase {
     }
 
     public Party run() {
-        var party = new Party();
 
         boolean exit = false;
         int option;
@@ -40,11 +39,11 @@ public class PartyCreatorUseCase {
                         myParty = PartyGenerator.writtenParty(size);
                         System.out.println("Your party is created. Generating enemy party");
                         //generate random enemy party
-                        Party enemyParty = PartyGenerator.randomParty(size);
+                         enemyParty = PartyGenerator.randomParty(size);
                         //battle
                     }
                     case 2 -> {
-                        System.out.println(party);
+                        System.out.println(myParty);
                     }
                     case 9 -> {
                         exit = true;
@@ -58,7 +57,7 @@ public class PartyCreatorUseCase {
                 throw new RuntimeException(e);
             }
         }
-        return party;
+        return myParty;
     }
 
     private void createCharacter() throws IllegalCharacterClassException {
