@@ -54,7 +54,7 @@ public abstract class Character implements Attacker {
     }
 
     public void decreaseHealthPoints(Integer quantity) {
-        this.currentStats.setHealthPoints(quantity);
+        this.currentStats.setHealthPoints(this.currentStats.getHp() - quantity);
         if (this.currentStats.getHp() <= 0) {
             this.die();
         }

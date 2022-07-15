@@ -39,13 +39,15 @@ public class Battle {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("The battle is about to start...");
+
+
         while (!isFinished()) {
             //select combatants to fight
             System.out.println("Select the combatant from the party ONE from the next list, use its position on the list being 0 the first: ");
             System.out.println(party1.toString());
             int answer = 0;
             answer = Integer.parseInt(reader.readLine());
-            var character1 = party1.getCharactersList().get(answer);
+            var character1 = party1.getRandomMember();
             var character2 = party2.getRandomMember();
             System.out.printf("Next turn: %s vs %s%n", character1.getName(), character2.getName());
             Duel.fight(character1, character2);
@@ -66,6 +68,7 @@ public class Battle {
                 party2.removeMember(character2);
                 graveyard.bury(character2);
             }
+
         }
         System.out.println("The battle has ended!");
         if (party1.isEmpty() && party2.isEmpty()) {
