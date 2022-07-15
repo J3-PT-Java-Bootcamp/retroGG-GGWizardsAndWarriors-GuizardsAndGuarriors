@@ -3,8 +3,9 @@
 
 ![Logo del juego Guarriors & Güizard](./assets/game-logo.png?raw=true "Guarriors and Güizard")
 
-**Guarriors & Güizards** es un serie de videojuegos basados en el mundo XXX.
+**Guarriors & Güizards** is a video game based on a fantasy world where mixed groups of warriors and wizards fight for victory.
 
+In a world at war, wizards and warriors have come together to form an unbreakable alliance. Together, they will fight against the dark forces that threaten to destroy everything they know. As they progress in their fight, they will discover new abilities and powerful spells, which will help them defeat their enemies. However, it will not be easy, as the enemy is powerful and has many followers. But if they unite, wizards and warriors can win, and thus save the world.
 
 
 ## Technology Stack
@@ -16,6 +17,11 @@
 
 ## Objectives
 
+Of the game:
+Create parties and fight to win.
+
+Of the Bootcamp:
+Create our first video game applying the concepts learned in class.
 
 
 
@@ -54,16 +60,13 @@ The objective of this homework is to develop an RPG battle simulator, where you 
 
 ### Slides
 [Presentation](https://slides.com/epiaggiov/code/fullscreen)
-## Especificación
+## Especifications
 
-xxx
+Launch day: June 17, 2022.  
+Version 1.0.0.  
+Available for PC.
 
-## Uso
+## How to play:
 
-xxx `stack build`, xx
-
-```bash
-xxx
-```
-
-Donde:
+Run the program and follow the instructions that will appear on the console.
+Enjoy the adventure!
