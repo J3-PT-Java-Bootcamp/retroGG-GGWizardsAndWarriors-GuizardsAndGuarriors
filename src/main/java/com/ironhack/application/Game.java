@@ -24,8 +24,8 @@ public class Game {
         boolean exit = false;
         Party myParty;
         int option;
-        this.printMenu();
         while (!exit) {
+            this.printMenu();
             try {
                 option = this.scanner.nextInt();
                 switch (option) {
