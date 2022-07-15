@@ -43,7 +43,11 @@ public class PartyCreatorUseCase {
                         //battle
                     }
                     case 2 -> {
-                        System.out.println(myParty);
+                        if(!myParty.isEmpty()){
+                            System.out.println(myParty);
+                        } else{
+                            System.out.println("Party is empty");
+                        }
                     }
                     case 9 -> {
                         exit = true;
