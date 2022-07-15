@@ -72,6 +72,7 @@ public class Battle {
         } else if (party2.isEmpty()) {
             System.out.println("Party two won!");
         }
+        scanner.close();
     }
 
     private boolean isFinished() {
