@@ -15,7 +15,7 @@
 
 
 ## Objectives
-
+This project is made in order to practice our solid foundations with our favorite language: **JAVA**.
 
 
 
@@ -35,9 +35,17 @@ The objective of this homework is to develop an RPG battle simulator, where you 
 
 
 
-## Models
+## Data Structure
+Classes and methods definition.
 
 
+# Battle Class
+| Name                        | 
+|-----------------------------|
+| Party party1                |
+| Party party2                |
+| Party Graveyard graveyard   |
+| Party                       |
 
 
 ## Backlog
