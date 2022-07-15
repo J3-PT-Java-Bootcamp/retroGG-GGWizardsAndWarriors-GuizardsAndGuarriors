@@ -37,9 +37,11 @@ public class Battle {
         System.out.println("The battle is about to start...");
         while (!isFinished()) {
             //select combatants to fight
-            System.out.println("Select the combatant from the party one from the next list, use its position on the list being 1 the first: ");
+            System.out.println("Select the combatant from the party one from the next list, use its position on the list being 0 the first: ");
             System.out.println(party1.toString());
             int answer = this.scanner.nextInt();
+            System.out.println("Select the combatant from the party two from the next list, use its position on the list being 0 the first: ");
+            System.out.println(party2.toString());
             var character1 = party1.getCharactersList().get(answer);
             var character2 = party2.getCharactersList().get(answer);
             System.out.printf("Next turn: %s vs %s%n", character1.getName(), character2.getName());
