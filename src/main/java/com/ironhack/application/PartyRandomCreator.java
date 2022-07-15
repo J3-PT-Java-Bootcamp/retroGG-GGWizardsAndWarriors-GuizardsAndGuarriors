@@ -7,6 +7,7 @@ import com.ironhack.domain.generators.CharacterGenerator;
 import com.ironhack.domain.generators.PartyGenerator;
 import com.ironhack.domain.party.Party;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -56,6 +57,8 @@ public class PartyRandomCreator {
             } catch (InputMismatchException exception) {
                 System.out.println("The selected option is not valid. Please, select a valid option:");
                 this.scanner.next();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
         return myParty;
