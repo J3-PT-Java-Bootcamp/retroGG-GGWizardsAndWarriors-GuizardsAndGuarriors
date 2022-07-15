@@ -33,12 +33,10 @@ public class PartyRandomCreator {
                         System.out.println("Create new random party");
                         System.out.println("Party size: ");
                         int size = this.scanner.nextInt();
-//                        createParty(size); TODO Ana delete comment
                         myParty = PartyGenerator.randomParty(size);
                         System.out.println("Your party is created. Generating enemy party");
                         Party enemyParty = PartyGenerator.randomParty(size);
-                        
-                        //generate random enemy party
+
                         //battle
                     }
                     case 2 -> {
@@ -61,18 +59,6 @@ public class PartyRandomCreator {
         return myParty;
     }
 
-    // Reemplazando este metodo con lo que hay en el package generators TODO Ana delete comment
-//    private void createParty(int size) {
-//        for (int i = 0; i < size; i++) {
-//            if (this.getRandomInt() == 1) {
-//                party.addMember(CharacterGenerator.randomWizard());
-//
-//            } else {
-//                party.addMember(CharacterGenerator.randomWarrior());
-//            }
-//        }
-//    }
-
     private void printOptions() {
         System.out.println("What do you want to do?");
         System.out.println("\t1 - Create a new random party");
@@ -80,9 +66,4 @@ public class PartyRandomCreator {
         System.out.println("\t9 - Finish party creation");
         System.out.println("Enter an option:");
     }
-
-    // Reemplazando este metodo con lo que hay en el package generators TODO Ana delete comment
-//    private int getRandomInt() {
-//        return (int) (Math.random() * (2 + 1));
-//    }
 }
