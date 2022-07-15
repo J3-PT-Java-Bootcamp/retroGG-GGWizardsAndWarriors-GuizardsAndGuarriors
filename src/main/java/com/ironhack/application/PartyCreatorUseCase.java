@@ -1,5 +1,6 @@
 package com.ironhack.application;
 
+import com.ironhack.domain.battle.Battle;
 import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
 import com.ironhack.domain.exceptions.IllegalCharacterClassException;
 import com.ironhack.domain.generators.PartyGenerator;
@@ -41,6 +42,8 @@ public class PartyCreatorUseCase {
                         //generate random enemy party
                          enemyParty = PartyGenerator.randomParty(size);
                         //battle
+                        Battle battle = new Battle(myParty, enemyParty);
+                        battle.start();
                     }
                     case 2 -> {
                         if(!myParty.isEmpty()){

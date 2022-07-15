@@ -8,6 +8,10 @@ import java.util.Random;
 public class Party {
     protected ArrayList<Character> charactersList;
 
+    public ArrayList<Character> getCharactersList() {
+        return charactersList;
+    }
+
     public Party() {
         this.charactersList = new ArrayList<Character>();
     }
