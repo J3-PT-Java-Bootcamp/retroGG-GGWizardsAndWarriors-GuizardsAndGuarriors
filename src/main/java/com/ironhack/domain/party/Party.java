@@ -8,6 +8,10 @@ import java.util.Random;
 public class Party {
     protected ArrayList<Character> charactersList;
 
+    public ArrayList<Character> getCharactersList() {
+        return charactersList;
+    }
+
     public Party() {
         this.charactersList = new ArrayList<Character>();
     }
@@ -15,6 +19,10 @@ public class Party {
     public Party(Character[] characters) {
         this.charactersList = new ArrayList<Character>();
         this.addMembers(characters);
+    }
+
+    public Party(ArrayList<Character> characters) {
+        this.charactersList = new ArrayList<>(characters);
     }
 
     public boolean isEmpty() {
