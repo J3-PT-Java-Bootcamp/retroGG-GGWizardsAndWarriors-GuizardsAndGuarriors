@@ -47,10 +47,14 @@ public class Wizard extends Character {
             attacked.decreaseHealthPoints(currentIntelligence);
             this.currentStats.setMana(currentMana - 5);
             System.out.println(getName() + " attacked with Fireball!! Total damage is " + currentIntelligence);
+            System.out.println(getName() + " hp:" + getCurrentStats().getHp());
+            System.out.println("---------------------------------------------------------------");
         } else {
             attacked.decreaseHealthPoints(STAFF_DAMAGE);
             this.currentStats.addMana(MANA_RECOVER);
             System.out.println(getName() + " attacked with Staff Hit!! Total damage is " + STAFF_DAMAGE);
+            System.out.println(getName() + " hp:" + getCurrentStats().getHp());
+            System.out.println("---------------------------------------------------------------");
         }
     }
 }
