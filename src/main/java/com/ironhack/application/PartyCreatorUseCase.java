@@ -2,14 +2,19 @@ package com.ironhack.application;
 
 import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
 import com.ironhack.domain.exceptions.IllegalCharacterClassException;
+import com.ironhack.domain.generators.PartyGenerator;
 import com.ironhack.domain.party.Party;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PartyCreatorUseCase {
 
     private final Scanner scanner;
+
+    Party myParty = new Party();
+    Party enemyParty = new Party();
 
     public PartyCreatorUseCase() {
         this.scanner = new Scanner(System.in);
@@ -28,9 +33,14 @@ public class PartyCreatorUseCase {
                 option = this.scanner.nextInt();
                 switch (option) {
                     case 1 -> {
-                        System.out.println("Create new character");
                         // create party usecase
+                        System.out.println("Create new party with the stats you want");
+                        System.out.println("Party size: ");
+                        int size = this.scanner.nextInt();
+                        myParty = PartyGenerator.writtenParty(size);
+                        System.out.println("Your party is created. Generating enemy party");
                         //generate random enemy party
+                        Party enemyParty = PartyGenerator.randomParty(size);
                         //battle
                     }
                     case 2 -> {
@@ -44,6 +54,8 @@ public class PartyCreatorUseCase {
             } catch (InputMismatchException exception) {
                 System.out.println("The selected option is not valid. Please, select a valid option:");
                 this.scanner.next();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
         return party;
