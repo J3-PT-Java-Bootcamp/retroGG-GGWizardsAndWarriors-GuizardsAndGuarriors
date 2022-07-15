@@ -32,30 +32,16 @@ public class Game {
                     case 1 -> {
                         myParty = this.PartyRandomCreator.run();
                         System.out.println(myParty);
-                        System.out.println("Generate random");
-                        System.out.println("Battle");
-                        // create random party usecase
-                        //generate random enemy party
-                        //battle
                     }
 
                     case 2 -> {
                         myParty = this.partyCreatorUseCase.run();
                         System.out.println(myParty);
-                        System.out.println("Generate by hand");
-                        System.out.println("Battle");
-                        // create party by hand usecase
-                        //generate random enemy party
-                        //battle
                     }
 
                     case 3 -> {
                         myParty = this.importCsvUseCase.run();
                         System.out.println(myParty);
-                        System.out.println("Generate from file");
-                        System.out.println("Battle");
-                        // Generate random enemy party
-                        // Battle
                     }
                     case 9 -> {
                         exit = true;
