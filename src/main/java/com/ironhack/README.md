@@ -1,6 +1,6 @@
 # Guarriors & Güizards, by RetroGG
 
-![Logo del juego Guarriors & Güizard](src/main/java/com/ironhack/assets/game-logo.png?raw=true "Guarriors and Güizard")
+![Logo del juego Guarriors & Güizard](./assets/game-logo.png?raw=true "Guarriors and Güizard")
 
 **Guarriors & Güizards** es un serie de videojuegos basados en el mundo XXX.
 
