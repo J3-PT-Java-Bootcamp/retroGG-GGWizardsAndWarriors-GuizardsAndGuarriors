@@ -40,9 +40,10 @@ public class Battle {
             System.out.println("Select the combatant from the party one from the next list, use its position on the list being 0 the first: ");
             System.out.println(party1.toString());
             int answer = this.scanner.nextInt();
+            var character1 = party1.getCharactersList().get(answer);
             System.out.println("Select the combatant from the party two from the next list, use its position on the list being 0 the first: ");
             System.out.println(party2.toString());
-            var character1 = party1.getCharactersList().get(answer);
+            answer = this.scanner.nextInt();
             var character2 = party2.getCharactersList().get(answer);
             System.out.printf("Next turn: %s vs %s%n", character1.getName(), character2.getName());
             Duel.fight(character1, character2);
