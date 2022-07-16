@@ -25,14 +25,10 @@ public class PartyCreatorFromCsvUseCase {
         System.out.println("Let's import a CSV file.");
         System.out.println("What's the file absolute path? ");
         var filepath = this.scanner.next();
-//        ArrayList<Character> characters = null;
         Character[] characters;
 
         try {
             characters = CsvReader.read(filepath).toArray(new Character[0]);
-//            for (int i = 0; i > characters.size(); i++){
-//                myParty.addMember(characters.get(i));
-//            }
             myParty.addMembers(characters);
             if(!myParty.isEmpty()) {
                 System.out.println("Your party is created. Generating enemy party");
