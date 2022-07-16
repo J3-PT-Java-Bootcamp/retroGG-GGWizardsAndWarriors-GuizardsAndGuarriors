@@ -8,6 +8,9 @@ import java.util.Random;
 public class Party {
     protected ArrayList<Character> charactersList;
 
+
+
+
     public ArrayList<Character> getCharactersList() {
         return charactersList;
     }
@@ -21,8 +24,9 @@ public class Party {
 //        this.addMembers(characters);
 //    }
 
-    public Party(ArrayList<Character> characters) {
-        this.charactersList = new ArrayList<>(characters);
+
+    public Party(Character[] characters) {
+        this.charactersList = new ArrayList<Character>();
         this.addMembers(characters);
     }
 
@@ -50,6 +54,14 @@ public class Party {
             this.addMember(character);
         }
     }
+
+    public void addMembers(Character[] characters) {
+        for (Character character : characters) {
+            this.addMember(character);
+        }
+
+    }
+
 
     @Override
     public String toString() {
