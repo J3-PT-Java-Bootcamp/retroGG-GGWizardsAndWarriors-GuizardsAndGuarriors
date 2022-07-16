@@ -39,18 +39,6 @@ The objective of this homework is to develop an RPG battle simulator, where you 
 * **Sergi Tubert** - *Java Backend developer*
 
 
-
-
-## Models
-
-
-
-
-## Backlog
-
-
-
-
 ## Links
 
 
