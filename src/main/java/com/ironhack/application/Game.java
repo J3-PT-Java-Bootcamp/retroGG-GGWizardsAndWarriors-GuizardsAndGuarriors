@@ -31,17 +31,14 @@ public class Game {
                 switch (option) {
                     case 1 -> {
                         myParty = this.PartyRandomCreator.run();
-                        System.out.println(myParty);
                     }
 
                     case 2 -> {
                         myParty = this.partyCreatorUseCase.run();
-                        System.out.println(myParty);
                     }
 
                     case 3 -> {
                         myParty = this.importCsvUseCase.run();
-                        System.out.println(myParty);
                     }
                     case 9 -> {
                         exit = true;
