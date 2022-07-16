@@ -131,4 +131,9 @@ public class CharacterGenerator {
             randomNames.add(name);
         }
     }
+
+    public static void cleanUsedNamesList(){
+        usedNames.clear();
+        randomNames.clear();
+    }
 }
