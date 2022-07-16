@@ -134,5 +134,6 @@ public class CharacterGenerator {
 
     public static void cleanUsedNamesList(){
         usedNames.clear();
+        randomNames.clear();
     }
 }
