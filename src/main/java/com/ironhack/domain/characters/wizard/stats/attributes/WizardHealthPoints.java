@@ -17,11 +17,11 @@ public class WizardHealthPoints extends HealthPoints {
 
     @Override
     public int getMaxValue() {
-        return 100;
+        return 200;
     }
 
     @Override
     public int getMinValue() {
-        return 50;
+        return 100;
     }
 }
