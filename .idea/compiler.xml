@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="retroGG-GGWizardsAndWarriors-GuizardsAndGuarriors" />
+        <module name="team1-project1-program1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="retroGG-GGWizardsAndWarriors-GuizardsAndGuarriors" target="17" />
+      <module name="team1-project1-program1" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
