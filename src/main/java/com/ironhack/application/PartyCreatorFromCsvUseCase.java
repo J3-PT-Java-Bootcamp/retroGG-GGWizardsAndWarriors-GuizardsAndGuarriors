@@ -32,8 +32,7 @@ public class PartyCreatorFromCsvUseCase {
             myParty.addMembers(characters);
             if(!myParty.isEmpty()) {
                 System.out.println("Your party is created. Generating enemy party");
-                Party enemyParty = PartyGenerator.randomParty(characters.length);
-                System.out.println(enemyParty);
+                enemyParty = PartyGenerator.randomParty(characters.length);
                 //battle starts
                 Battle battle = new Battle(myParty, enemyParty);
                 battle.start();
