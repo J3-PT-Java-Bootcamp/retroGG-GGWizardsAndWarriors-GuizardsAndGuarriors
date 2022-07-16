@@ -16,13 +16,14 @@ public class Party {
         this.charactersList = new ArrayList<Character>();
     }
 
-    public Party(Character[] characters) {
-        this.charactersList = new ArrayList<Character>();
-        this.addMembers(characters);
-    }
+//    public Party(Character[] characters) {
+//        this.charactersList = new ArrayList<Character>();
+//        this.addMembers(characters);
+//    }
 
     public Party(ArrayList<Character> characters) {
         this.charactersList = new ArrayList<>(characters);
+        this.addMembers(characters);
     }
 
     public boolean isEmpty() {
@@ -44,7 +45,7 @@ public class Party {
         this.charactersList.add(character);
     }
 
-    public void addMembers(Character[] characters) {
+    public void addMembers(ArrayList<Character> characters) {
         for (Character character : characters) {
             this.addMember(character);
         }
