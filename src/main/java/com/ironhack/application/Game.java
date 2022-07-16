@@ -1,5 +1,6 @@
 package com.ironhack.application;
 
+import com.ironhack.domain.generators.CharacterGenerator;
 import com.ironhack.domain.party.Party;
 
 import java.io.IOException;
@@ -21,6 +22,9 @@ public class Game {
     }
 
     public void start() throws IOException {
+        CharacterGenerator.cleanUsedNamesList();
+        CharacterGenerator.fillArrayOfNames();
+
         boolean exit = false;
         Party myParty;
         int option;

@@ -8,8 +8,6 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        CharacterGenerator.cleanUsedNamesList();
-        CharacterGenerator.fillArrayOfNames();
         var game = new Game();
         try {
             game.start();
