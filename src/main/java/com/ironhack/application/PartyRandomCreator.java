@@ -15,6 +15,7 @@ public class PartyRandomCreator {
 
     private final Scanner scanner;
     Party myParty = new Party();
+    Party enemyParty = new Party();
 
     public PartyRandomCreator() {
         this.scanner = new Scanner(System.in);
@@ -37,7 +38,7 @@ public class PartyRandomCreator {
                         int size = this.scanner.nextInt();
                         myParty = PartyGenerator.randomParty(size);
                         System.out.println("Your party is created. Generating enemy party");
-                        Party enemyParty = PartyGenerator.randomParty(size);
+                        enemyParty = PartyGenerator.randomParty(size);
                         //battle
                         Battle battle = new Battle(myParty, enemyParty);
                         battle.start();
