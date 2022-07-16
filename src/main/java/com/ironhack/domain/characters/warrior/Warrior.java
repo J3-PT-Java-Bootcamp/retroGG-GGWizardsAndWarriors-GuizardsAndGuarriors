@@ -44,12 +44,16 @@ public class Warrior extends Character implements Attacker {
         if (currentStamina >= 5) {
             attacked.decreaseHealthPoints(currentStrength);
             getCurrentStats().setStamina(currentStamina - 5);
-            System.out.println("Heavy attack: Total damage is " + currentStrength);
+            System.out.println(getName() + " attacked with Heavy attack!! Total damage is " + currentStrength);
+            System.out.println(getName() + " hp:" + getCurrentStats().getHp());
+            System.out.println("---------------------------------------------------------------");
         } else {
             int damage = currentStrength / 2;
             attacked.decreaseHealthPoints(damage);
             getCurrentStats().setStamina(currentStamina + 1);
-            System.out.println("Weak attack: Total damage is " + damage);
+            System.out.println(getName() + " attacked with Weak attack!! Total damage is " + damage);
+            System.out.println(getName() + " hp:" + getCurrentStats().getHp());
+            System.out.println("---------------------------------------------------------------");
         }
     }
 }

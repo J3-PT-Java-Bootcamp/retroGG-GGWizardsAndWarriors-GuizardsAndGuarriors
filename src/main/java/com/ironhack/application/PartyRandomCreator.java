@@ -1,11 +1,13 @@
 package com.ironhack.application;
 
+import com.ironhack.domain.battle.Battle;
 import com.ironhack.domain.characters.warrior.stats.attributes.Stamina;
 import com.ironhack.domain.exceptions.IllegalCharacterClassException;
 import com.ironhack.domain.generators.CharacterGenerator;
 import com.ironhack.domain.generators.PartyGenerator;
 import com.ironhack.domain.party.Party;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,6 +15,7 @@ public class PartyRandomCreator {
 
     private final Scanner scanner;
     Party myParty = new Party();
+    Party enemyParty = new Party();
 
     public PartyRandomCreator() {
         this.scanner = new Scanner(System.in);
@@ -35,9 +38,10 @@ public class PartyRandomCreator {
                         int size = this.scanner.nextInt();
                         myParty = PartyGenerator.randomParty(size);
                         System.out.println("Your party is created. Generating enemy party");
-                        Party enemyParty = PartyGenerator.randomParty(size);
-
+                        enemyParty = PartyGenerator.randomParty(size);
                         //battle
+                        Battle battle = new Battle(myParty, enemyParty);
+                        battle.start();
                     }
                     case 2 -> {
                         if(!myParty.isEmpty()){
@@ -54,6 +58,8 @@ public class PartyRandomCreator {
             } catch (InputMismatchException exception) {
                 System.out.println("The selected option is not valid. Please, select a valid option:");
                 this.scanner.next();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
         return myParty;
